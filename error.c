@@ -1,17 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   players_movements.c                                :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/22 13:49:20 by rachou            #+#    #+#             */
-/*   Updated: 2024/05/07 12:37:54 by rachou           ###   ########.fr       */
+/*   Created: 2024/05/07 12:36:50 by rachou            #+#    #+#             */
+/*   Updated: 2024/05/07 12:37:29 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//'A' déplace mon personnage vers la gauche.
-//'D' déplace mon personnage vers la droite.
-//'W' déplace mon personnage vers le haut.
-//'S' déplace mon personnage vers le bas.
-//ne pas oublier keys ESC, ENTER, DEL.
+#include "so_long.h"
+

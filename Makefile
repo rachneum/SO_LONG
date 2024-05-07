@@ -1,6 +1,7 @@
 NAME = so_long
 SRC =	players_movements.c \
 		so_long_utils.c \
+		error.c \
 		main.c
 OBJS = ${SRC:.c=.o}
 CC = gcc
