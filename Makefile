@@ -1,18 +1,28 @@
 NAME = so_long
-SRC =	players_movements.c \
-		so_long_utils.c \
-		error.c \
-		main.c
+
+SRC =	main.c \
+		map/map_checker.c \
+		map/map_parsing.c \
+		map/map_utils.c \
+		utils/utils.c
+
 OBJS = ${SRC:.c=.o}
+
 CC = gcc
+
 CFLAGS = -Wall -Werror -Wextra
+
 RM = rm -f
+
 INCLUDES = -I/opt/X11/include -Imlx
+
 MLX_FLAGS = -Lmlx -lmlx -L/usr/X11/lib -lXext -lX11 -framework OpenGL -framework AppKit
+
 
 # Définissent le répertoire où se trouve la bibliothèque MLX ('MLX_DIR') ainsi que le chemin
 # complet vers la bibliothèque MLX('MLX_LIB').
 MLX_DIR = ./mlx
+
 MLX_LIB = $(MLX_DIR)/libmlx_$(UNAME).a
 
 # Indique comment générer un fichier objet ('.o') à partir d'un fichier source C ('.c').
