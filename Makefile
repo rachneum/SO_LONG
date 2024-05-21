@@ -1,10 +1,11 @@
 NAME = so_long
 
-SRC =	main.c \
-		map/map_checker.c \
-		map/map_parsing.c \
-		map/map_utils.c \
-		utils/utils.c
+SRC =	src/main.c \
+		src/map/map_checker.c \
+		src/map/map_parsing.c \
+		src/map/map_utils.c \
+		src/game/player.c \
+		src/utils/utils.c
 
 OBJS = ${SRC:.c=.o}
 

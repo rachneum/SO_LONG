@@ -6,11 +6,11 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 12:02:30 by rachou            #+#    #+#             */
-/*   Updated: 2024/05/16 16:46:58 by rachou           ###   ########.fr       */
+/*   Updated: 2024/05/21 12:10:39 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long"
+#include "../../includes/so_long.h"
 
 static int	count_lines(char *file)
 {
@@ -31,6 +31,23 @@ static int	count_lines(char *file)
 		free(line);
 	}
 	return (count);
+}
+
+static char	*set_line_data(char *map, char *line)
+{
+	int	i;
+
+	i = 0;
+	while (i < ft_strlen(line))
+	{
+		if (line[i] != '\n')
+			map[i] = line[i];
+		else
+			break;
+		i++;
+	}
+	map[i] = '\0';
+	return (map);
 }
 
 static char	**set_map_data(char **map, char *file, int nb_lines)
@@ -58,23 +75,6 @@ static char	**set_map_data(char **map, char *file, int nb_lines)
 	return (map);
 }
 
-static char	*set_line_data(char *map, char *line)
-{
-	int	i;
-
-	i = 0;
-	while (i < ft_strlen(line))
-	{
-		if (line[x] != '\n')
-			map[i] = line[i];
-		else
-			break;
-		i++;
-	}
-	map[i] = '\0';
-	return (map);
-}
-
 char	**parse_map(char *file)
 {
 	char	**map;
@@ -83,7 +83,7 @@ char	**parse_map(char *file)
 	nb_lines = count_lines(file);
 	if (!nb_lines)
 		error("ERROR: Map file is empty\n");
-	map = malloc(sieof(char *) * (nb_lines + 1));
+	map = malloc(sizeof(char *) * (nb_lines + 1));
 	if (!map)
 		error("ERROR: Malloc failed!\n");
 	map = set_map_data(map, file, nb_lines);

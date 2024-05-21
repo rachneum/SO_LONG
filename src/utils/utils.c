@@ -1,26 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_utils.c                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 15:52:22 by rachou            #+#    #+#             */
-/*   Updated: 2024/05/16 15:55:28 by rachou           ###   ########.fr       */
+/*   Created: 2024/05/16 11:56:22 by rachou            #+#    #+#             */
+/*   Updated: 2024/05/21 11:32:47 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../../includes/so_long.h"
 
-void	free_map(char **map)
+int ft_strlen(char *str)
 {
-	int	i;
+    int	i;
 
 	i = 0;
-	while (map[i])
-	{
-		free(map[i]);
+	while (str[i])
 		i++;
-	}
-	free(map);
+	return (i);
+}
+
+static void ft_putstr_fd(char *str, int fd)
+{
+	int	len;
+
+	if (!str || !fd)
+		return ;
+	len = ft_strlen(str);
+	write(fd, &str, len);
+}
+
+void	error(char *str)
+{
+	ft_putstr_fd(str, 2);
+	exit(EXIT_FAILURE);
+}
+
+void	free_error(char *str, char **map)
+{
+	free_map(map);
+	ft_putstr_fd(str, 2);
+	exit(EXIT_FAILURE);
 }

@@ -6,11 +6,11 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:48:28 by rachou            #+#    #+#             */
-/*   Updated: 2024/05/16 16:45:51 by rachou           ###   ########.fr       */
+/*   Updated: 2024/05/21 11:43:09 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../../includes/so_long.h"
 
 static int	map_is_rectangular(char **map)
 {
@@ -20,7 +20,7 @@ static int	map_is_rectangular(char **map)
 	while (map[i])
 	{
 		if (ft_strlen(map[i]) != ft_strlen(map[0]))
-			return (0)
+			return (0);
 		i++;
 	}
 	return (1);
@@ -53,7 +53,16 @@ static int	item_is_valid(char **map)
 	int	x;
 	int	y;
 
-
+	y = 0;
+	while (map[y])
+	{
+		x = 0;
+		if (map[y][x] != '0' && map[y][x] != '1' && map[y][x] != 'C'
+			&& map[y][x] != 'E' && map[y][x] != 'P')
+			return (0);
+		y++;
+	}
+	return (1);
 }
 
 static int	count_items(char **map, char item)
@@ -62,6 +71,20 @@ static int	count_items(char **map, char item)
 	int	y;
 	int	count;
 
+	y = 0;
+	count = 0;
+	while (map[y])
+	{
+		x = 0;
+		while (map[y][x])
+		{
+			if (map[y][x] == item)
+				count++;
+			x++;
+		}
+		y++;	
+	}
+	return (count);
 }
 
 void	map_valid(char **map)

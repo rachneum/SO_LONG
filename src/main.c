@@ -6,11 +6,11 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 11:51:01 by rachou            #+#    #+#             */
-/*   Updated: 2024/05/16 10:55:54 by rachou           ###   ########.fr       */
+/*   Updated: 2024/05/16 17:34:32 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
 int	main(void)
 {
