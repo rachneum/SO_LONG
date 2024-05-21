@@ -1,29 +1,21 @@
 NAME = so_long
 
+OBJS = ${SRC:.c=.o}
+CC = gcc
+CFLAGS = -Wall -Werror -Wextra
+RM = rm -f
+INCLUDES = -I/opt/X11/include -Imlx
+
 SRC =	src/main.c \
 		src/map/map_checker.c \
 		src/map/map_parsing.c \
 		src/map/map_utils.c \
 		src/game/player.c \
-		src/utils/utils.c
-
-OBJS = ${SRC:.c=.o}
-
-CC = gcc
-
-CFLAGS = -Wall -Werror -Wextra
-
-RM = rm -f
-
-INCLUDES = -I/opt/X11/include -Imlx
+		src/utils/utils.c \
+		get_next_line/get_next_line.c \
+		get_next_line/get_next_line_utils.c
 
 MLX_FLAGS = -Lmlx -lmlx -L/usr/X11/lib -lXext -lX11 -framework OpenGL -framework AppKit
-
-
-# Définissent le répertoire où se trouve la bibliothèque MLX ('MLX_DIR') ainsi que le chemin
-# complet vers la bibliothèque MLX('MLX_LIB').
-MLX_DIR = ./mlx
-
 MLX_LIB = $(MLX_DIR)/libmlx_$(UNAME).a
 
 # Indique comment générer un fichier objet ('.o') à partir d'un fichier source C ('.c').
