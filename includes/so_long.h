@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 15:19:59 by rachou            #+#    #+#             */
-/*   Updated: 2024/05/21 12:05:04 by rachou           ###   ########.fr       */
+/*   Updated: 2024/05/24 13:13:51 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@
 #include <unistd.h>
 #include <fcntl.h>
 
+# define BACKGROUND_PATH "../assets/background.xpm"
+# define BUSHES_PATH "../assets/bushes.xpm"
+# define FLOWERS_PATH "../assets/flowers.xpm"
+# define TREES_PATH "../assets/bushes.xpm"
+
 typedef struct s_data
 {
     void	*img;
@@ -27,6 +32,9 @@ typedef struct s_data
     int		bits_per_pixel;
     int		line_length;
     int		endian;
+    int     width;
+    int     height;
+    void    *mlx_ptr;
 }	t_data;
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
@@ -34,6 +42,7 @@ void	map_valid(char **map);
 void	free_map(char **map);
 void	error(char *str);
 void	free_error(char *str, char **map);
+void	init_win(void);
 
 char	**parse_map(char *file);
 
