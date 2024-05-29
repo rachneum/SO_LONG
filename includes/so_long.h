@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 15:19:59 by rachou            #+#    #+#             */
-/*   Updated: 2024/05/24 13:13:51 by rachou           ###   ########.fr       */
+/*   Updated: 2024/05/29 17:13:57 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,6 @@ typedef struct s_data
     int		bits_per_pixel;
     int		line_length;
     int		endian;
-    int     width;
-    int     height;
-    void    *mlx_ptr;
 }	t_data;
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
