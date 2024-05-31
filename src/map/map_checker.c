@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:48:28 by rachou            #+#    #+#             */
-/*   Updated: 2024/05/21 11:43:09 by rachou           ###   ########.fr       */
+/*   Updated: 2024/05/31 14:48:32 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ static int	map_is_closed(char **map)
 		x++;
 	}
 	y = 0;
-	while (map[0][y])
+	while (map[y])
 	{
-		if (map[0][y] != 1)
+		if (map[y][0] != 1)
 			return (0);
 		y++;
 	}
@@ -57,9 +57,13 @@ static int	item_is_valid(char **map)
 	while (map[y])
 	{
 		x = 0;
-		if (map[y][x] != '0' && map[y][x] != '1' && map[y][x] != 'C'
-			&& map[y][x] != 'E' && map[y][x] != 'P')
-			return (0);
+		while (map[y][x])
+		{
+			if (map[y][x] != '0' && map[y][x] != '1' && map[y][x] != 'C'
+				&& map[y][x] != 'E' && map[y][x] != 'P')
+				return (0);
+			x++;
+		}
 		y++;
 	}
 	return (1);
@@ -102,4 +106,3 @@ void	map_valid(char **map)
 	else if (count_items(map, 'P') != 1)//"P": player's starting position.
 		free_error("Error\nMap player's starting position is invalid!\n", map);
 }
-

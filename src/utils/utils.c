@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:56:22 by rachou            #+#    #+#             */
-/*   Updated: 2024/05/21 11:32:47 by rachou           ###   ########.fr       */
+/*   Updated: 2024/05/31 17:11:16 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void ft_putstr_fd(char *str, int fd)
 	if (!str || !fd)
 		return ;
 	len = ft_strlen(str);
-	write(fd, &str, len);
+	write(fd, str, len);
 }
 
 void	error(char *str)
