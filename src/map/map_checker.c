@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:48:28 by rachou            #+#    #+#             */
-/*   Updated: 2024/06/04 11:53:04 by rachou           ###   ########.fr       */
+/*   Updated: 2024/06/04 14:34:36 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,17 @@ static int	map_is_closed(char **map)
 	while (map[0][x])
 	{
 		if (map[0][x] != '1')
-			return (0);
+			return (1);
 		x++;
 	}
 	y = 0;
 	while (map[y])
 	{
 		if (map[y][0] != '1')
-			return (0);
+			return (1);
 		y++;
 	}
-	return (1);
+	return (0);
 }
 
 static int	item_is_valid(char **map)
@@ -61,12 +61,12 @@ static int	item_is_valid(char **map)
 		{
 			if (map[y][x] != '0' && map[y][x] != '1' && map[y][x] != 'C'
 				&& map[y][x] != 'E' && map[y][x] != 'P')
-				return (0);
+				return (1);
 			x++;
 		}
 		y++;
 	}
-	return (1);
+	return (0);
 }
 
 static int	count_items(char **map, char item)
