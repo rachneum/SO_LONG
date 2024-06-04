@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:48:28 by rachou            #+#    #+#             */
-/*   Updated: 2024/05/31 14:48:32 by rachou           ###   ########.fr       */
+/*   Updated: 2024/06/04 11:53:04 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,14 @@ static int	map_is_closed(char **map)
 	x = 0;
 	while (map[0][x])
 	{
-		if (map[0][x] != 1)
+		if (map[0][x] != '1')
 			return (0);
 		x++;
 	}
 	y = 0;
 	while (map[y])
 	{
-		if (map[y][0] != 1)
+		if (map[y][0] != '1')
 			return (0);
 		y++;
 	}

@@ -6,38 +6,37 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 14:50:18 by rachou            #+#    #+#             */
-/*   Updated: 2024/05/31 17:13:37 by rachou           ###   ########.fr       */
+/*   Updated: 2024/06/04 13:38:23 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/so_long.h"
-
 
 int	main(void)
 {
 	int		i;
 	int		fd;
 	char	*line;
-	char	**map = NULL;
+	char	**map;
 
 	i = 0;
-	line = NULL;
 	fd = open("maps/map_1.ber", O_RDONLY);
+	line = malloc(sizeof(30000000));
 	if (fd == -1)
 		error("ERROR: Map file opening failed!\n");
 	//init_win();
-	line = get_next_line(fd);
-	while (line != NULL)
+	map = malloc(sizeof(char *) * ft_strlen(line));
+	while (fd)
 	{
-		map = malloc(sizeof(char **));
+		line = get_next_line(fd);
+		if (line == NULL)
+			break ;
 		map[i] = line;
+		printf("%s", map[i]);
 		i++;
-		line = NULL;
 	}
-	map[i] = NULL;
 	close(fd);
 	map_valid(map);
 	free(map);
-	//init_win();
 	return (0);
 }
