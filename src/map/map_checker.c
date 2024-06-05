@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:48:28 by rachou            #+#    #+#             */
-/*   Updated: 2024/06/04 14:34:36 by rachou           ###   ########.fr       */
+/*   Updated: 2024/06/05 13:16:56 by raneuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,20 +32,20 @@ static int	map_is_closed(char **map)
 	int y;
 
 	x = 0;
-	while (map[0][x])
+	while (map[x])
 	{
 		if (map[0][x] != '1')
-			return (1);
+			return (0);
 		x++;
 	}
 	y = 0;
 	while (map[y])
 	{
 		if (map[y][0] != '1')
-			return (1);
+			return (0);
 		y++;
 	}
-	return (0);
+	return (1);
 }
 
 static int	item_is_valid(char **map)

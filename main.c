@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 14:50:18 by rachou            #+#    #+#             */
-/*   Updated: 2024/06/04 14:44:17 by rachou           ###   ########.fr       */
+/*   Updated: 2024/06/04 15:03:58 by raneuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int	main(void)
 	}
 	close(fd);
 	map_valid(map);
+    free(line);
 	free(map);
 	return (0);
 }
