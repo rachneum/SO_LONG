@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 14:50:18 by rachou            #+#    #+#             */
-/*   Updated: 2024/06/04 15:03:58 by raneuman         ###   ########.fr       */
+/*   Updated: 2024/06/05 14:23:34 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(void)
 		if (line[ft_strlen(line)] == '\n')
 			line[ft_strlen(line)] = 0;
 		map[i] = line;
-		//printf("%s", map[i]);
+		printf("%s", map[i]);
 		i++;
 	}
 	close(fd);

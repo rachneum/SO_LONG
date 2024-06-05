@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:48:28 by rachou            #+#    #+#             */
-/*   Updated: 2024/06/05 13:16:56 by raneuman         ###   ########.fr       */
+/*   Updated: 2024/06/05 14:24:23 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,13 @@ static int	item_is_valid(char **map)
 		while (map[y][x])
 		{
 			if (map[y][x] != '0' && map[y][x] != '1' && map[y][x] != 'C'
-				&& map[y][x] != 'E' && map[y][x] != 'P')
-				return (1);
+				&& map[y][x] != 'E' && map[y][x] != 'P' && map[y][x] != '\n')
+				return (0);
 			x++;
 		}
 		y++;
 	}
-	return (0);
+	return (1);
 }
 
 static int	count_items(char **map, char item)
