@@ -6,13 +6,13 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 12:02:30 by rachou            #+#    #+#             */
-/*   Updated: 2024/05/21 12:10:39 by rachou           ###   ########.fr       */
+/*   Updated: 2024/06/05 15:03:09 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-static int	count_lines(char *file)
+int	count_lines(char *file)
 {
 	int		fd;
 	int		count;

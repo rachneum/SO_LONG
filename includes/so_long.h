@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 15:19:59 by rachou            #+#    #+#             */
-/*   Updated: 2024/06/04 14:23:07 by rachou           ###   ########.fr       */
+/*   Updated: 2024/06/05 15:03:05 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ void	init_win(void);
 char	**parse_map(char *file);
 
 int ft_strlen(char *str);
+int	count_lines(char *file);
 
 #endif
