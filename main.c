@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 14:50:18 by rachou            #+#    #+#             */
-/*   Updated: 2024/06/05 15:47:46 by rachou           ###   ########.fr       */
+/*   Updated: 2024/06/05 16:16:09 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(void)
 	int		map_size;
 
 	i = 0;
-	fd = open("maps/map_2.ber", O_RDONLY);
+	fd = open("maps/map_1.ber", O_RDONLY);
 	if (fd == -1)
 		error("ERROR: Map file opening failed!\n");
 	map_size = 100;
