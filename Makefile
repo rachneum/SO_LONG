@@ -17,6 +17,7 @@ SRC =	get_next_line/get_next_line.c \
 		map/map_check_paths.c \
 		map/map_utils.c \
 		graphic_management/window.c \
+		graphic_management/get_image.c \
 		graphic_management/exit_window.c \
 		game/players_goal.c \
 		game/players_movements.c \

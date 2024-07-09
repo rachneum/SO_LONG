@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 15:19:59 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/09 14:38:48 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/09 17:16:25 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,17 @@
 # include <fcntl.h>
 # include <limits.h>
 
-typedef struct s_data
-{
-    void    *img;
-}   t_data;
+# define RED_CROSS	17
+# define KEY_ESC	53
+
+typedef struct s_image{
+	void	*floor;
+}	t_image;
+
+typedef struct s_data{
+	void	*mlx;
+	void	*mlx_win;
+}	t_data;
 
 char	**parse_map(char *map_file);
 char	**set_map(char **map, char *file, int nb_lines);
@@ -42,6 +49,6 @@ void    ft_putstr_fd(char *str, int fd);
 void	map_is_valid(char **map);
 void	ft_free_error(char *str, char **map);
 void	ft_free_map(char **map);
-void	init_win(void);
+void	init_win(t_data *game);
 
 #endif

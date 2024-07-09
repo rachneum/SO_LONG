@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 14:50:18 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/09 14:43:18 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/09 17:23:59 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ int	main(void)
 	int		i;
 	char	**map;
 	char	*line;
+	t_data	game;
 
+	//game = NULL;
 	fd = open("map/map_2.ber", O_RDONLY);
 	if (fd == -1)
 		ft_error("ERROR\nMap file opening has failed!\n");
@@ -42,7 +44,7 @@ int	main(void)
 	}
 	close(fd);
 	map_is_valid(map);
-	init_win();
+	init_win(&game);
 	i--;
 	while (i >= 0)
 	{

@@ -6,10 +6,10 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:11:21 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/09 14:36:48 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/09 14:57:27 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-//Handle ButtonPressed Events.
+//Handle ButtonPressedEvents.
