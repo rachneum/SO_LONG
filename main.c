@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/08 14:21:34 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/08 15:40:40 by rachou           ###   ########.fr       */
+/*   Created: 2024/05/22 14:50:18 by rachou            #+#    #+#             */
+/*   Updated: 2024/07/09 14:43:18 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(void)
 	char	**map;
 	char	*line;
 
-	fd = open("maps/map_1.ber", O_RDONLY);
+	fd = open("map/map_2.ber", O_RDONLY);
 	if (fd == -1)
 		ft_error("ERROR\nMap file opening has failed!\n");
 	map_size = INT_MAX;

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/08 11:23:47 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/08 15:08:38 by rachou           ###   ########.fr       */
+/*   Created: 2024/04/26 15:19:59 by rachou            #+#    #+#             */
+/*   Updated: 2024/07/09 14:38:48 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <limits.h>
+
+typedef struct s_data
+{
+    void    *img;
+}   t_data;
 
 char	**parse_map(char *map_file);
 char	**set_map(char **map, char *file, int nb_lines);
@@ -37,5 +42,6 @@ void    ft_putstr_fd(char *str, int fd);
 void	map_is_valid(char **map);
 void	ft_free_error(char *str, char **map);
 void	ft_free_map(char **map);
+void	init_win(void);
 
 #endif

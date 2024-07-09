@@ -2,7 +2,7 @@ NAME = so_long
 
 OBJS = ${SRC:.c=.o}
 
-CC = gcc
+CC = cc
 
 CFLAGS = -Wall -Werror -Wextra
 
@@ -12,13 +12,16 @@ INCLUDES = -I/opt/X11/include -Imlx
 
 SRC =	get_next_line/get_next_line.c \
 		get_next_line/get_next_line_utils.c\
-		graphic_management/window.c \
-		map/map_checker.c \
 		map/map_parsing.c \
+		map/map_checker.c \
+		map/map_check_paths.c \
 		map/map_utils.c \
+		graphic_management/window.c \
+		graphic_management/exit_window.c \
+		game/players_goal.c \
+		game/players_movements.c \
 		ft_error.c \
 		ft_utils.c \
-		so_long.c \
 		main.c
 
 MLX_FLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit

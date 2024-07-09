@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/08 12:26:27 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/08 14:07:02 by rachou           ###   ########.fr       */
+/*   Created: 2024/05/16 11:48:28 by rachou            #+#    #+#             */
+/*   Updated: 2024/07/09 14:43:05 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,19 @@
 
 int	map_is_rectangular(char **map)
 {
-	int	i;
+	int	y;
 
-	i = 0;
-	while (map[i])
+	y = 0;
+	while (map[y])
 	{
-		if (ft_strlen(map[i]) != ft_strlen(map[0]))
+		if (ft_strlen(map[y]) != ft_strlen(map[0]))
 			return (0);
-		i++;
+		y++;
 	}
 	return (1);
 }
 
-
-int	map_is_closed(char **map)
+int	map_is_closed(char **map)//à corriger.
 {
 	int	x;
 	int	y;
@@ -35,14 +34,14 @@ int	map_is_closed(char **map)
 	x = 0;
 	while (map[x])
 	{
-		if (map[0][x] != 1)
+		if (map[0][x] != '1')
 			return (0);
 		x++;
 	}
 	y = 0;
 	while (map[y])
 	{
-		if (map[y][0] != 1)
+		if (map[y][0] != '1')
 			return (0);
 		y++;
 	}
