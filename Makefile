@@ -16,6 +16,7 @@ SRC =	get_next_line/get_next_line.c \
 		map/map_checker.c \
 		map/map_parsing.c \
 		map/map_utils.c \
+		game/init_game.c \
 		ft_error.c \
 		ft_utils.c 
 
