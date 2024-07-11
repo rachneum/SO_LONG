@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 13:51:03 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/11 13:42:31 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/12 00:23:26 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@
 # include <string.h>
 
 # define FLOOR_PATH "./assets/floor.xpm"
+# define WALL_PATH "./assets/trees.xpm"
+
+typedef struct s_img{
+	void *floor;
+	void *wall;
+}	t_img;
 
 typedef struct s_data{
 	char	**map;
@@ -31,6 +37,7 @@ typedef struct s_data{
 	int		img_pxl;
 	//int		x;
 	//int		y;
+	t_img	image_adr;
 }	t_data;
 
 char	**parse_map(t_data *game, char *file);
@@ -50,5 +57,8 @@ void	ft_free_error(char *str, t_data *game);
 void	ft_free_map(t_data *game);
 void	map_is_valid(t_data *game);
 void	init_game(t_data *game);
+void	get_image_adr(t_data *game);
+void	display_image(void *mlx, void *win, t_data *game, char **map);
+void	put_floor(t_data *game, int x, int y);
 
 #endif
