@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 15:52:22 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/09 14:34:47 by rachou           ###   ########.fr       */
+/*   Created: 2024/07/10 14:52:45 by rachou            #+#    #+#             */
+/*   Updated: 2024/07/10 16:50:21 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	count_lines(char *file)
 	int		count;
 	char	*line;
 	
-	fd = open(file, O_RDONLY, 0777);//Faut-il donner les doits au cas où ou pas??
+	fd = open(file, O_RDONLY, 0777);
 	if (fd == -1)
 		ft_error("ERROR\nMap file opening has failed!\n");
 	count = 0;
@@ -33,22 +33,23 @@ int	count_lines(char *file)
 	return (count);
 }
 
-void	ft_free_map(char **map)
+void	ft_free_map(t_data *game)
 {
 	int	i;
 
 	i = 0;
-	while (map[i])
+	while (game->map[i])
 	{
-		free(map[i]);
+		if (game->map[i] != NULL)
+			//free(game->map[i]);
 		i++;
 	}
-	free(map);
+	//free(game->map);
 }
 
-void	ft_free_error(char *str, char **map)
+void	ft_free_error(char *str, t_data *game)
 {
-	ft_free_map(map);
+	ft_free_map(game);
 	ft_putstr_fd(str, 2);
 	exit(EXIT_FAILURE);
 }

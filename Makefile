@@ -12,18 +12,12 @@ INCLUDES = -I/opt/X11/include -Imlx
 
 SRC =	get_next_line/get_next_line.c \
 		get_next_line/get_next_line_utils.c\
-		map/map_parsing.c \
+		main.c \
 		map/map_checker.c \
-		map/map_check_paths.c \
+		map/map_parsing.c \
 		map/map_utils.c \
-		graphic_management/window.c \
-		graphic_management/get_image.c \
-		graphic_management/exit_window.c \
-		game/players_goal.c \
-		game/players_movements.c \
 		ft_error.c \
-		ft_utils.c \
-		main.c
+		ft_utils.c 
 
 MLX_FLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
 
@@ -33,7 +27,7 @@ MLX_LIB = $(MLX_DIR)/libmlx_$(UNAME).a
 	$(CC) $(CFLAGS) -c -o $@ $< $(INCLUDES)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX_FLAGS)
+	$(CC) $(CFLAGS) -fsanitize=address -g3 -o $(NAME) $(OBJS) $(MLX_FLAGS)
 
 all: ${NAME}
 

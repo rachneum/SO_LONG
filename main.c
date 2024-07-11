@@ -5,52 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/22 14:50:18 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/09 17:23:59 by rachou           ###   ########.fr       */
+/*   Created: 2024/07/10 13:52:30 by rachou            #+#    #+#             */
+/*   Updated: 2024/07/11 12:32:29 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(void)
+int	main(int argc, char **argv)
 {
-	int		fd;
-	int		map_size;
-	int		i;
-	char	**map;
-	char	*line;
 	t_data	game;
+	int i = -1;
 
-	//game = NULL;
-	fd = open("map/map_2.ber", O_RDONLY);
-	if (fd == -1)
-		ft_error("ERROR\nMap file opening has failed!\n");
-	map_size = INT_MAX;
-	map = malloc(sizeof(char *) * map_size);
-	if (map == NULL)
-		ft_error("ERROR\nMemory allocation has failed!\n");
-	i = 0;
-	while ((line = get_next_line(fd)) != NULL)
-	{
-		if (i >= map_size)
-		{
-			map_size *= 2;//??
-			map = realloc(map, sizeof(char *) * map_size);//??
-			if (map == NULL)
-				ft_error("ERROR\nMemory reallocation has failed!\n");
-		}
-		map[i] = line;
-		i++;
-	}
-	close(fd);
-	map_is_valid(map);
-	init_win(&game);
-	i--;
-	while (i >= 0)
-	{
-		free(map[i]);
-		i--;
-	}
-	free(map);
+	if (argc != 2)
+		ft_error("ERROR\nThere is not the right amount of arguments!\n");
+	parse_map(&game, argv[1]);
+	while (game.map[++i])
+		printf("%s", game.map[i]);
+	map_is_valid(&game);
+	//init_game(&game);
 	return (0);
 }

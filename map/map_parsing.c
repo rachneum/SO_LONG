@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 12:02:30 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/09 14:34:31 by rachou           ###   ########.fr       */
+/*   Created: 2024/07/10 14:48:09 by rachou            #+#    #+#             */
+/*   Updated: 2024/07/11 12:13:07 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-char	*set_line(char *map, char *line)//Copie le contenu d'une chaîne de caractères line dans une autre chaîne de caractères map, en ignorant les caractères de nouvelle ligne (\n). Elle renvoie ensuite la chaîne de caractères map.
+/*char	*set_line(t_data *game, char *line, int j)//Copie le contenu d'une chaîne de caractères line dans une autre chaîne de caractères map, en ignorant les caractères de nouvelle ligne (\n). Elle renvoie ensuite la chaîne de caractères map.
 {
 	int	i;
 
@@ -20,16 +20,16 @@ char	*set_line(char *map, char *line)//Copie le contenu d'une chaîne de caract�
 	while (i < ft_strlen(line))
 	{
 		if (line[i] != '\n')
-			map[i] = line[i];
+			game->map[j][i] = line[i];
 		else
 			break;
 		i++;
 	}
-	map[i] = '\0';
-	return (map);
-}
+	game->map[j][i] = '\0';
+	return (game->map[i]);
+}*/
 
-char	**set_map(char **map, char *file, int nb_lines)//Lit un fichier ligne par ligne, copie chaque ligne dans un tableau de chaînes de caractères map, et renvoie ce tableau.
+char	**set_map(t_data *game, char *file, int nb_lines)//Lit un fichier ligne par ligne, copie chaque ligne dans un tableau de chaînes de caractères map, et renvoie ce tableau.
 {
 	int		fd;
 	int		i;
@@ -37,35 +37,44 @@ char	**set_map(char **map, char *file, int nb_lines)//Lit un fichier ligne par l
 
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
-		ft_free_error("ERROR\nMap file opening has failed\n", map);
+		ft_free_error("ERROR\nThe map file opening has failed\n", game);
 	i = 0;
 	while (i < nb_lines)
 	{
 		line = get_next_line(fd);
-		map[i] = malloc(sizeof(char) * (ft_strlen(line) + 1));
-		if (!map[i])
-			ft_free_error("ERROR\nMalloc has failed!\n", map);
-		map[i] = set_line(map[i], line);
+		game->map[i] = strdup(line);//alloue suffisemment de mémoir pour une copie de la string, fait la copie et renvoie un pointeur.
+		if (!game->map[i])
+			ft_free_error("ERROR\nMalloc has failed!\n", game);
+		//game->map[i] = set_line(game, line, i);
 		free(line);
 		i++;
 	}
-	map[i] = NULL;
+	game->map[i] = NULL;
 	close(fd);
-	return (map);
+	return (game->map);
 }
 
-char	**parse_map(char *map_file)
+/*char	**set_map(t_data *game, char *file, int nb_lines)
 {
-	int		nb_lines;
-	char	**map;
+	int	fd;
 
-	nb_lines = count_lines(map_file);
+	fd = open(file, O_RDONLY, 0777);
+	if (fd == -1)
+		ft_error("ERROR\nFile opening has failed\n");
+
+}*/
+
+char	**parse_map( t_data *game, char *file)
+{
+	int	nb_lines;
+
+	nb_lines = count_lines(file);
 	if (!nb_lines)
-		ft_error("ERROR\nMap is empty!\n");
-	map = malloc(sizeof(char *) * (nb_lines + 1));
-	if (!map)
+		ft_error("ERROR\nThe map is empty!\n");
+	game->map = malloc(sizeof(char *) * (nb_lines + 1));
+	if (!game->map)
 		ft_error("ERROR\nMalloc has failed!\n");
-	map = set_map(map, map_file, nb_lines);
-	map_is_valid(map);
-	return (map);
+	game->map = set_map(game, file, nb_lines);
+	
+	return (game->map);
 }

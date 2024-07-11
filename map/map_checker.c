@@ -5,62 +5,72 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 11:48:28 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/09 14:43:05 by rachou           ###   ########.fr       */
+/*   Created: 2024/07/10 15:08:22 by rachou            #+#    #+#             */
+/*   Updated: 2024/07/11 13:12:15 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-int	map_is_rectangular(char **map)
+int	map_is_rectangular(t_data *game)
 {
 	int	y;
 
 	y = 0;
-	while (map[y])
+	while (game->map[y])
 	{
-		if (ft_strlen(map[y]) != ft_strlen(map[0]))
+		if (ft_strlen(game->map[y]) != ft_strlen(game->map[0]))
 			return (0);
 		y++;
 	}
 	return (1);
 }
 
-int	map_is_closed(char **map)//à corriger.
+/*int	map_is_closed(t_data *game)
 {
 	int	x;
 	int	y;
 
 	x = 0;
-	while (map[x])
+	while (game->map[0][x])
 	{
-		if (map[0][x] != '1')
+		if (game->map[0][x] != '1')
 			return (0);
 		x++;
 	}
+	y = -1;
+	//x--;
+	while (game->map[++y][x])
+		if (game->map[y][x] != '1')
+			return (0);
 	y = 0;
-	while (map[y])
+	while (game->map[y])
 	{
-		if (map[y][0] != '1')
+		if (game->map[y][0] != '1')
 			return (0);
 		y++;
 	}
+	x = -1;
+	//y--;
+	while (game->map[y][++x])
+		if (game->map[y][x] != '1')
+			return (0);
 	return (1);
-}
+}*/
 
-int	item_is_valid(char **map)
+int	item_is_valid(t_data *game)
 {
 	int	x;
 	int	y;
 
 	y = 0;
-	while (map[y])
+	while (game->map[y])
 	{
 		x = 0;
-		while (map[y][x])
+		while (game->map[y][x])
 		{
-			if (map[y][x] != '0' && map[y][x] != '1' && map[y][x] != 'C'
-				&& map[y][x] != 'E' && map[y][x] != 'P' && map[y][x] != '\n')
+			if (game->map[y][x] != '0' && game->map[y][x] != '1' && game->map[y][x] != 'C'
+				&& game->map[y][x] != 'E' && game->map[y][x] != 'P' && game->map[y][x] != '\n')
 				return (0);
 			x++;
 		}
@@ -69,7 +79,7 @@ int	item_is_valid(char **map)
 	return (1);
 }
 
-int	count_items(char **map, char item)
+int	count_items(t_data *game, char item)
 {
 	int	x;
 	int	y;
@@ -77,12 +87,12 @@ int	count_items(char **map, char item)
 
 	y = 0;
 	count = 0;
-	while (map[y])
+	while (game->map[y])
 	{
 		x = 0;
-		while (map[y][x])
+		while (game->map[y][x])
 		{
-			if (map[y][x] == item)
+			if (game->map[y][x] == item)
 				count++;
 			x++;
 		}
@@ -91,18 +101,18 @@ int	count_items(char **map, char item)
 	return (count);
 }
 
-void	map_is_valid(char **map)
+void	map_is_valid(t_data *game)
 {
-	if (!map_is_rectangular(map))
-		ft_free_error("Error\nMap is not rectangular!\n", map);
-	else if (!map_is_closed(map))
-		ft_free_error("Error\nMap is not closed!\n", map);
-	else if (!item_is_valid(map))
-		ft_free_error("Error\nMap contains invalid items!\n", map);
-	else if (count_items(map, 'C') < 1)//"C": collectables.
-		ft_free_error("Error\nMap does not have at least one item!\n", map);
-	else if (count_items(map, 'E') < 1)//"E": exit.
-		ft_free_error("Error\nMap does not have at least one exit!\n", map);
-	else if (count_items(map, 'P') != 1)//"P": player's starting position.
-		ft_free_error("Error\nMap player's starting position is invalid!\n", map);
+	if (!map_is_rectangular(game))
+		ft_free_error("Error\nMap is not rectangular!\n", game);
+	//else if (!map_is_closed(game))
+	//	ft_free_error("Error\nMap is not closed!\n", game);
+	else if (!item_is_valid(game))
+		ft_free_error("Error\nMap contains invalid items!\n", game);
+	else if (count_items(game, 'C') < 1)//"C": collectables.
+		ft_free_error("Error\nMap does not have at least one item!\n", game);
+	else if (count_items(game, 'E') < 1)//"E": exit.
+		ft_free_error("Error\nMap does not have at least one exit!\n", game);
+	else if (count_items(game, 'P') != 1)//"P": player's starting position.
+		ft_free_error("Error\nMap player's starting position is invalid!\n", game);
 }
