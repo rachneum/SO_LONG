@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 13:51:03 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/14 18:00:16 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/15 14:06:23 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@
 # define CHARACTER_PATH "./assets/shroom.xpm"
 
 # define KEY_ESCAPE 53
+
+# define KEY_W	13
+# define KEY_A	0
+# define KEY_S	1
+# define KEY_D	2
 
 typedef struct s_img{
 	void	*floor;
@@ -66,8 +71,8 @@ void	map_is_valid(t_data *game);
 void	init_game(t_data *game);
 void	get_image_adr(t_data *game);
 void	display_image(void *mlx, void *win, t_data *game, char **map);
-void	put_floor(t_data *game, int x, int y);
-void	put_character(t_data *game, int x, int y);
+//void	put_floor(t_data *game, int x, int y);
+//void	put_character(t_data *game, int x, int y);
 void	destroy_image(t_data *game);
 
 #endif

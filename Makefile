@@ -20,7 +20,6 @@ SRC =	get_next_line/get_next_line.c \
 		game/set_image.c \
 		game/hooks.c \
 		game/destroy_image.c \
-		ft_error.c \
 		ft_utils.c 
 
 MLX_FLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
