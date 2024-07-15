@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 13:51:03 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/12 00:23:26 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/14 18:00:16 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,16 @@
 # include <limits.h>
 # include <string.h>
 
-# define FLOOR_PATH "./assets/floor.xpm"
-# define WALL_PATH "./assets/trees.xpm"
+# define FLOOR_PATH "./assets/floor_2.xpm"
+# define WALL_PATH "./assets/bricks_1.xpm"
+# define CHARACTER_PATH "./assets/shroom.xpm"
+
+# define KEY_ESCAPE 53
 
 typedef struct s_img{
-	void *floor;
-	void *wall;
+	void	*floor;
+	void	*wall;
+	void	*character;
 }	t_img;
 
 typedef struct s_data{
@@ -50,6 +54,9 @@ int		count_items(t_data *game, char item);
 int		item_is_valid(t_data *game);
 //int		map_is_closed(t_data *game);
 int		map_is_rectangular(t_data *game);
+int		key_press(int keycode, t_data *game);
+int		red_cross(t_data *data);
+int	ft_esc(int keycode, t_data *game);
 
 void	ft_error(char *str);
 void	ft_putstr_fd(char *str, int fd);
@@ -60,5 +67,7 @@ void	init_game(t_data *game);
 void	get_image_adr(t_data *game);
 void	display_image(void *mlx, void *win, t_data *game, char **map);
 void	put_floor(t_data *game, int x, int y);
+void	put_character(t_data *game, int x, int y);
+void	destroy_image(t_data *game);
 
 #endif

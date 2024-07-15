@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_game.c                                        :+:      :+:    :+:   */
+/*   destroy_image.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/11 13:28:53 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/14 17:48:23 by rachou           ###   ########.fr       */
+/*   Created: 2024/07/14 17:55:49 by rachou            #+#    #+#             */
+/*   Updated: 2024/07/15 13:09:08 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	init_game(t_data *game)
+void	destroy_image(t_data *game)
 {
-	game->img_pxl = 64;
-	game->mlx = mlx_init();
-	game->mlx_win = mlx_new_window(game->mlx, 831, 330, "so_long");
-	get_image_adr(game);
-	display_image(game->mlx, game->mlx_win, game, game->map);
-	mlx_hook(game->mlx_win, 17, 0, &red_cross, game);
-	//mlx_hook(game->mlx_win, 2, 0, &key_press, game);
-	mlx_loop(game->mlx);
+	void	*mlx;
+
+	mlx = game->mlx;
+	if (game->image_adr.floor)
+		mlx_destroy_image(mlx, game->image_adr.floor);
+	if (game->image_adr.wall)
+		mlx_destroy_image(mlx, game->image_adr.wall);
+	if (game->image_adr.character)
+		mlx_destroy_image(mlx, game->image_adr.character);
 }

@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_game.c                                        :+:      :+:    :+:   */
+/*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/11 13:28:53 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/14 17:48:23 by rachou           ###   ########.fr       */
+/*   Created: 2024/07/14 17:43:51 by rachou            #+#    #+#             */
+/*   Updated: 2024/07/14 18:06:25 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	init_game(t_data *game)
+int	ft_esc(int keycode, t_data *game)
 {
-	game->img_pxl = 64;
-	game->mlx = mlx_init();
-	game->mlx_win = mlx_new_window(game->mlx, 831, 330, "so_long");
-	get_image_adr(game);
-	display_image(game->mlx, game->mlx_win, game, game->map);
-	mlx_hook(game->mlx_win, 17, 0, &red_cross, game);
-	//mlx_hook(game->mlx_win, 2, 0, &key_press, game);
-	mlx_loop(game->mlx);
+	(void)keycode;
+	ft_free_map(game);
+	mlx_destroy_window(game->mlx, game->mlx_win);
+	destroy_image(game);
+	exit(0);
+}
+
+
+int	red_cross(t_data *data)
+{
+	ft_esc(0, data);
+	return (1);
+}
+
+int	key_press(int keycode, t_data *game)
+{
+	if (keycode == KEY_ESCAPE)
+		red_cross(game);
+	return (0);
 }

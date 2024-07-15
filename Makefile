@@ -18,6 +18,8 @@ SRC =	get_next_line/get_next_line.c \
 		map/map_utils.c \
 		game/init_game.c \
 		game/set_image.c \
+		game/hooks.c \
+		game/destroy_image.c \
 		ft_error.c \
 		ft_utils.c 
 
