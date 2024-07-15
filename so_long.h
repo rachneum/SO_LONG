@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 13:51:03 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/15 14:06:23 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/15 14:20:38 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,14 @@
 # define CHARACTER_PATH "./assets/shroom.xpm"
 
 # define KEY_ESCAPE 53
-
-# define KEY_W	13
-# define KEY_A	0
-# define KEY_S	1
-# define KEY_D	2
+# define KEY_W		13
+# define KEY_A		0
+# define KEY_S		1
+# define KEY_D		2
+# define KEY_UP		126
+# define KEY_DOWN	125
+# define KEY_RIGHT	124
+# define KEY_LEFT	123
 
 typedef struct s_img{
 	void	*floor;
