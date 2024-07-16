@@ -6,19 +6,19 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 17:43:51 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/16 12:57:44 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/16 14:26:22 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	move_player(t_data *game, int x, int y)
+void	move_player(t_data *game, int x, int y, int pos)
 {
 	if (game->map[y][x] == '1')
 		return ;
 	game->moves++;
-	printf("nbr moves : %d\n", game->moves);
-	if (game->map[y][x] == '0' || game->map[y][x] == 'C')
+	printf("number of moves : %d\n", game->moves);
+	if (game->map[y][x] == '0' || game->map[y][x] == 'C' || game->map[y][x] == 'E')
 	{
 		if (game->map[y][x] == 'C')
 			game->collect_points++;
@@ -26,8 +26,12 @@ void	move_player(t_data *game, int x, int y)
 		game->map[game->player_y][game->player_x] = '0';
 		put_floor(game, game->player_x, game->player_y);
 		put_floor(game, x, y);
-		put_character(game, x, y);
+		put_character(game, x, y, pos);
 	}
+	/*if (game->map[y][x] == 'E')
+	{
+		if (game->collect_point == )
+	}*/
 }
 
 int	ft_esc(int keycode, t_data *game)
@@ -51,12 +55,12 @@ int	key_press(int keycode, t_data *game)
 	if (keycode == KEY_ESCAPE)
 		red_cross(game);
 	if (keycode == KEY_UP || keycode == KEY_W)
-		move_player(game, game->player_x, game->player_y - 1);
+		move_player(game, game->player_x, game->player_y - 1, 1);
 	if (keycode == KEY_DOWN || keycode == KEY_S)
-		move_player(game, game->player_x, game->player_y + 1);
+		move_player(game, game->player_x, game->player_y + 1, 0);
 	if (keycode == KEY_RIGHT || keycode == KEY_D)
-		move_player(game, game->player_x + 1, game->player_y);
+		move_player(game, game->player_x + 1, game->player_y, 2);
 	if (keycode == KEY_LEFT || keycode == KEY_A)
-		move_player(game, game->player_x - 1, game->player_y);
+		move_player(game, game->player_x - 1, game->player_y, 3);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 13:51:03 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/16 12:57:13 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/16 14:38:22 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@
 
 # define FLOOR_PATH "./assets/grass.xpm"
 # define WALL_PATH "./assets/trees.xpm"
-# define CHARACTER_PATH "./assets/pink_character.xpm"
+# define CHARACTER_FRONT_PATH "./assets/pink_character_front.xpm"
+# define CHARACTER_BACK_PATH "./assets/pink_character_back.xpm"
+# define CHARACTER_RIGHT_PATH "./assets/pink_character_right.xpm"
+# define CHARACTER_LEFT_PATH "./assets/pink_character_left.xpm"
 # define COLLECT_PATH "./assets/potion_bottle.xpm"
 
 # define KEY_ESCAPE 53
@@ -40,7 +43,10 @@
 typedef struct s_img{
 	void	*floor;
 	void	*wall;
-	void	*character;
+	void	*character_front;
+	void	*character_back;
+	void	*character_right;
+	void	*character_left;
 	void	*collectable;
 }	t_img;
 
@@ -49,6 +55,8 @@ typedef struct s_data{
 	void	*mlx;
 	void	*mlx_win;
 	int		img_pxl;
+	//int		y;
+	//int		x;
 	int		moves;
 	int		collect_points;
 	int		player_x;
@@ -78,10 +86,10 @@ void	map_is_valid(t_data *game);
 void	init_game(t_data *game);
 void	get_image_adr(t_data *game);
 void	put_floor(t_data *game, int x, int y);
-void	put_character(t_data *game, int x, int y);
+void	put_character(t_data *game, int x, int y, int pos);
 //void	put_exit(t_data *game, int x, int y);
 void	display_image(void *mlx, void *win, t_data *game, char **map);
 void	destroy_image(t_data *game);
-void	move_player(t_data *game, int x, int y);
+void	move_player(t_data *game, int x, int y, int pos);
 
 #endif

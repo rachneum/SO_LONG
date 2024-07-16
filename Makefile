@@ -31,14 +31,17 @@ MLX_LIB = $(MLX_DIR)/libmlx_$(UNAME).a
 	$(CC) $(CFLAGS) -c -o $@ $< $(INCLUDES)
 
 $(NAME): $(OBJS)
+	make -C ./mlx
 	$(CC) $(CFLAGS) -fsanitize=address -g3 -o $(NAME) $(OBJS) $(MLX_FLAGS)
 
 all: ${NAME}
 
 clean:
+	make -C ./mlx
 	${RM} ${OBJS}
 
 fclean: clean
+	make clean -C ./mlx
 	${RM} ${NAME}
 
 re: fclean all

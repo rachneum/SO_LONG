@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 15:46:21 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/16 12:55:59 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/16 13:28:27 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,21 @@
 
 }*/
 
-void	put_character(t_data *game, int x, int y)
+void	put_character(t_data *game, int x, int y, int pos)
 {
 	void	*mlx;
 	void	*mlx_win;
 
 	mlx = game->mlx;
 	mlx_win = game->mlx_win;
-	mlx_put_image_to_window(mlx, mlx_win, game->image_adr.character, 64 * x, 64 * y);
+	if (pos == 0)
+		mlx_put_image_to_window(mlx, mlx_win, game->image_adr.character_front, 64 * x, 64 * y);
+	if (pos == 1)
+		mlx_put_image_to_window(mlx, mlx_win, game->image_adr.character_back, 64 * x, 64 * y);
+	if (pos == 2)
+		mlx_put_image_to_window(mlx, mlx_win, game->image_adr.character_right, 64 * x, 64 * y);
+	if (pos == 3)
+		mlx_put_image_to_window(mlx, mlx_win, game->image_adr.character_left, 64 * x, 64 * y);
 	game->player_x = x;
 	game->player_y = y;
 }
@@ -59,7 +66,7 @@ void	display_image(void *mlx, void *mlx_win, t_data *game, char **map)
 			if (map[y][x] == '1')
 				mlx_put_image_to_window(mlx, mlx_win, game->image_adr.wall, 64 * x, 64 * y);
 			else if (map[y][x] == 'P')
-				put_character(game, x, y);
+				put_character(game, x, y, 0);
 			else if (map[y][x] == 'C')
 				mlx_put_image_to_window(mlx, mlx_win, game->image_adr.collectable, 64 * x, 64 * y);
 			x++;
