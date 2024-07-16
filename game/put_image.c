@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 15:46:21 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/16 12:40:36 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/16 12:55:59 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ void	put_character(t_data *game, int x, int y)
 	mlx = game->mlx;
 	mlx_win = game->mlx_win;
 	mlx_put_image_to_window(mlx, mlx_win, game->image_adr.character, 64 * x, 64 * y);
-
+	game->player_x = x;
+	game->player_y = y;
 }
 
 void	put_floor(t_data *game, int x, int y)

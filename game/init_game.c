@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 13:28:53 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/16 12:40:07 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/16 12:46:18 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	init_game(t_data *game)
 {
 	game->img_pxl = 64;
-	//game->moves = 0;
-	//game->collect_points = 0;
+	game->moves = 0;
+	game->collect_points = 0;
 	game->mlx = mlx_init();
 	game->mlx_win = mlx_new_window(game->mlx, 831, 330, "so_long");
 	get_image_adr(game);

@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 13:51:03 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/16 12:40:05 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/16 12:57:13 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,10 @@ typedef struct s_data{
 	void	*mlx;
 	void	*mlx_win;
 	int		img_pxl;
-	//int		moves;
-	//int		collect_points;
+	int		moves;
+	int		collect_points;
+	int		player_x;
+	int		player_y;
 	t_img	image_adr;
 }	t_data;
 
@@ -80,6 +82,6 @@ void	put_character(t_data *game, int x, int y);
 //void	put_exit(t_data *game, int x, int y);
 void	display_image(void *mlx, void *win, t_data *game, char **map);
 void	destroy_image(t_data *game);
-void	move_player(t_data *game, int x, int y, int pos);
+void	move_player(t_data *game, int x, int y);
 
 #endif
