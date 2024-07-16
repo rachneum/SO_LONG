@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 13:51:03 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/15 14:20:38 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/16 12:40:05 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@
 # include <limits.h>
 # include <string.h>
 
-# define FLOOR_PATH "./assets/floor_2.xpm"
-# define WALL_PATH "./assets/bricks_1.xpm"
-# define CHARACTER_PATH "./assets/shroom.xpm"
+# define FLOOR_PATH "./assets/grass.xpm"
+# define WALL_PATH "./assets/trees.xpm"
+# define CHARACTER_PATH "./assets/pink_character.xpm"
+# define COLLECT_PATH "./assets/potion_bottle.xpm"
 
 # define KEY_ESCAPE 53
 # define KEY_W		13
@@ -40,6 +41,7 @@ typedef struct s_img{
 	void	*floor;
 	void	*wall;
 	void	*character;
+	void	*collectable;
 }	t_img;
 
 typedef struct s_data{
@@ -47,8 +49,8 @@ typedef struct s_data{
 	void	*mlx;
 	void	*mlx_win;
 	int		img_pxl;
-	//int		x;
-	//int		y;
+	//int		moves;
+	//int		collect_points;
 	t_img	image_adr;
 }	t_data;
 
@@ -64,7 +66,7 @@ int		item_is_valid(t_data *game);
 int		map_is_rectangular(t_data *game);
 int		key_press(int keycode, t_data *game);
 int		red_cross(t_data *data);
-int	ft_esc(int keycode, t_data *game);
+int		ft_esc(int keycode, t_data *game);
 
 void	ft_error(char *str);
 void	ft_putstr_fd(char *str, int fd);
@@ -73,9 +75,11 @@ void	ft_free_map(t_data *game);
 void	map_is_valid(t_data *game);
 void	init_game(t_data *game);
 void	get_image_adr(t_data *game);
+void	put_floor(t_data *game, int x, int y);
+void	put_character(t_data *game, int x, int y);
+//void	put_exit(t_data *game, int x, int y);
 void	display_image(void *mlx, void *win, t_data *game, char **map);
-//void	put_floor(t_data *game, int x, int y);
-//void	put_character(t_data *game, int x, int y);
 void	destroy_image(t_data *game);
+void	move_player(t_data *game, int x, int y, int pos);
 
 #endif
