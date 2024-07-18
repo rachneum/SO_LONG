@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 12:18:01 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/16 13:31:26 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/16 15:36:09 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,7 @@ void	get_image_adr(t_data *game)
 	game->image_adr.collectable = mlx_xpm_file_to_image(game->mlx, COLLECT_PATH, &width, &height);
 	if (!game->image_adr.collectable)
 		ft_error("ERROR\nGet collectable image adr failed\n");
+	game->image_adr.exit_door = mlx_xpm_file_to_image(game->mlx, EXIT_DOOR_PATH, &width, &height);
+	if (!game->image_adr.exit_door)
+		ft_error("ERROR\nGet exit_door image adr failed\n");
 }

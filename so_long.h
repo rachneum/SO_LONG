@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 13:51:03 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/16 14:38:22 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/16 16:31:45 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define CHARACTER_RIGHT_PATH "./assets/pink_character_right.xpm"
 # define CHARACTER_LEFT_PATH "./assets/pink_character_left.xpm"
 # define COLLECT_PATH "./assets/potion_bottle.xpm"
+# define EXIT_DOOR_PATH "./assets/black_hole.xpm"
 
 # define KEY_ESCAPE 53
 # define KEY_W		13
@@ -48,6 +49,7 @@ typedef struct s_img{
 	void	*character_right;
 	void	*character_left;
 	void	*collectable;
+	void	*exit_door;
 }	t_img;
 
 typedef struct s_data{
@@ -59,8 +61,11 @@ typedef struct s_data{
 	//int		x;
 	int		moves;
 	int		collect_points;
+	int		total_collect_points;
 	int		player_x;
 	int		player_y;
+	int		exit_x;
+	int		exit_y;
 	t_img	image_adr;
 }	t_data;
 
@@ -87,7 +92,7 @@ void	init_game(t_data *game);
 void	get_image_adr(t_data *game);
 void	put_floor(t_data *game, int x, int y);
 void	put_character(t_data *game, int x, int y, int pos);
-//void	put_exit(t_data *game, int x, int y);
+void	put_exit(t_data *game, int x, int y);
 void	display_image(void *mlx, void *win, t_data *game, char **map);
 void	destroy_image(t_data *game);
 void	move_player(t_data *game, int x, int y, int pos);
