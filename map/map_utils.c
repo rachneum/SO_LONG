@@ -6,11 +6,23 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 14:52:45 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/10 16:50:21 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/22 16:51:19 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
+
+int count_length(char *file)
+{
+	int		fd;
+	char	*line;
+	
+	fd = open(file, O_RDONLY, 0777);
+	if (fd == -1)
+		ft_error("ERROR\nMap file opening has failed!\n");
+	line = get_next_line(fd);
+	return (ft_strlen(line));
+}
 
 int	count_lines(char *file)
 {

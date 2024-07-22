@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 13:51:03 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/22 14:42:20 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/22 16:51:08 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ typedef struct s_data{
 	void	*mlx;
 	void	*mlx_win;
 	int		img_pxl;
-	//int		y;
-	//int		x;
+	int		y;
+	int		x;
 	int		moves;
 	int		collect_points;
 	int		total_collect_points;
@@ -74,10 +74,11 @@ char	**set_map(t_data *game, char *file, int nb_lines);
 char	*set_line(t_data *game, char *line, int j);
 
 int		count_lines(char *file);
+int 	count_length(char *file);
 int		ft_strlen(char *str);
 int		count_items(t_data *game, char item);
 int		item_is_valid(t_data *game);
-//int		map_is_closed(t_data *game);
+int		map_is_closed(t_data *game);
 int		map_is_rectangular(t_data *game);
 int		key_press(int keycode, t_data *game);
 int		red_cross(t_data *data);

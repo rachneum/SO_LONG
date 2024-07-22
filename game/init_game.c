@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 13:28:53 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/22 13:12:38 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/22 16:58:15 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	init_game(t_data *game)
 	game->collect_points = 0;
 	game->total_collect_points = count_items(game, 'C');
 	game->mlx = mlx_init();
-	game->mlx_win = mlx_new_window(game->mlx, 831, 330, "so_long");//game->img_pxl * game->x, game->img_pxl * game->y
+	game->mlx_win = mlx_new_window(game->mlx, game->img_pxl * game->x, game->img_pxl * game->y, "so_long");
 	get_image_adr(game);
 	display_image(game->mlx, game->mlx_win, game, game->map);
 	mlx_hook(game->mlx_win, 17, 0, &red_cross, game);//17 = hooking event: ON_DESTROY
