@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 17:43:51 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/22 11:56:37 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/22 14:42:00 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,17 @@ void	move_player(t_data *game, int x, int y, int pos)
 	{
 		if (game->map[y][x] == 'C')
 			game->collect_points++;
-		game->map[y][x] = '0';
 		game->map[game->player_y][game->player_x] = '0';
 		put_floor(game, game->player_x, game->player_y);
 		put_floor(game, x, y);
 		put_character(game, x, y, pos);
 		if (game->collect_points == game->total_collect_points)
+		{
 			put_exit(game, game->exit_x, game->exit_y);
+			if (game->map[y][x] == 'E')
+				red_cross(game);
+		}
 	}
-	/*if (game->map[y][x] == 'E')
-	{
-		put_floor(game, game->player_x, game->player_y);
-		put_character(game, x, y, pos);
-		if (game->collect_points == game->total_collect_points)
-			red_cross(game);
-	}*/
 }
 
 int	ft_esc(int keycode, t_data *game)
