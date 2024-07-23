@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 13:51:03 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/22 16:51:08 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/23 11:39:43 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # include <string.h>
 
 # define FLOOR_PATH "./assets/grass.xpm"
-# define WALL_PATH "./assets/trees.xpm"
+# define WALL_PATH "./assets/trees3.xpm"
 # define CHARACTER_FRONT_PATH "./assets/pink_character_front.xpm"
 # define CHARACTER_BACK_PATH "./assets/pink_character_back.xpm"
 # define CHARACTER_RIGHT_PATH "./assets/pink_character_right.xpm"

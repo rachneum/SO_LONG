@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 15:08:22 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/22 16:55:00 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/23 11:28:13 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,28 +55,6 @@ int	map_is_rectangular(t_data *game)
 	while (game->map[y][++x])
 		if (game->map[y][x] != '1')
 			return (0);
-	return (1);
-}*/
-
-/*int	map_is_closed(t_data *game)
-{
-	int	x;
-	int	y;
-
-	x = 0;
-	while (game->map[0][x])
-	{
-		if (game->map[0][x] != '1')
-			return (0);
-		x++;
-	}
-	y = 0;
-	while (game->map[y])
-	{
-		if (game->map[y][0] != '1')
-			return (0);
-		y++;
-	}
 	return (1);
 }*/
 
@@ -135,6 +113,6 @@ void	map_is_valid(t_data *game)
 		ft_free_error("Error\nMap does not have at least one item!\n", game);
 	else if (count_items(game, 'E') < 1)
 		ft_free_error("Error\nMap does not have at least one exit!\n", game);
-	/*else if (count_items(game, 'P') != 1)
-		ft_free_error("Error\nMap player's starting position is invalid!\n", game);*/
+	else if (count_items(game, 'P') != 1)
+		ft_free_error("Error\nMap player's starting position is invalid!\n", game);
 }

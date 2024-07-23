@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 14:52:45 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/22 16:51:19 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/23 11:28:44 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,8 @@ void	ft_free_map(t_data *game)
 	while (game->map[i])
 	{
 		if (game->map[i] != NULL)
-			//free(game->map[i]);
 		i++;
 	}
-	//free(game->map);
 }
 
 void	ft_free_error(char *str, t_data *game)
