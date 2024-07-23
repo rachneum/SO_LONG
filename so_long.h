@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 13:51:03 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/23 11:44:36 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/23 13:13:31 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 # include <limits.h>
 # include <string.h>
 
-# define FLOOR_PATH "./assets/grass.xpm"
-# define WALL_PATH "./assets/trees.xpm"
+# define FLOOR_PATH "./assets/stars.xpm"
+# define WALL_PATH "./assets/space2.xpm"
 # define CHARACTER_FRONT_PATH "./assets/pink_character_front.xpm"
 # define CHARACTER_BACK_PATH "./assets/pink_character_back.xpm"
 # define CHARACTER_RIGHT_PATH "./assets/pink_character_right.xpm"
@@ -70,6 +70,7 @@ typedef struct s_data{
 }	t_data;
 
 char	**parse_map(t_data *game, char *file);
+char	*ft_strdup(char *s1);
 char	**set_map(t_data *game, char *file, int nb_lines);
 char	*set_line(t_data *game, char *line, int j);
 
@@ -88,6 +89,7 @@ void	ft_error(char *str);
 void	ft_putstr_fd(char *str, int fd);
 void	ft_free_error(char *str, t_data *game);
 void	ft_free_map(t_data *game);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	map_is_valid(t_data *game);
 void	init_game(t_data *game);
 void	get_image_adr(t_data *game);
