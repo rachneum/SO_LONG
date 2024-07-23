@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 17:43:51 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/23 12:21:28 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/23 16:08:23 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,11 @@ void	move_player(t_data *game, int x, int y, int pos)
 	printf("number of moves : %d\n", game->moves);
 	if (game->map[y][x] == '0' || game->map[y][x] == 'C' || game->map[y][x] == 'E')
 	{
-		if (game->map[y][x] == 'C')
+		if (game->map[game->player_y][game->player_x] == 'C')
 			game->collect_points++;
-		game->map[game->player_y][game->player_x] = '0';
+		if (game->map[game->player_y][game->player_x] != 'E')
+			game->map[game->player_y][game->player_x] = '0';
+		//printf("%d\n", game->map[y][x]);
 		put_floor(game, game->player_x, game->player_y);
 		put_floor(game, x, y);
 		put_character(game, x, y, pos);
