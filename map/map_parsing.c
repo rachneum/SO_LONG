@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_parsing.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 14:48:09 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/23 12:32:58 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/23 16:26:20 by raneuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ char	**parse_map( t_data *game, char *file)
 	game->map = set_map(game, file, nb_lines);
 	game->x = count_length(file) - 1;
 	game->y = nb_lines;
-	printf("%d\n%d\n", game->x, game->y);
+	//printf("%d\n%d\n", game->x, game->y);
 	return (game->map);
 }

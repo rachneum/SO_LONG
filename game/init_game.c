@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 13:28:53 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/22 16:58:15 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/23 16:24:28 by raneuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	init_game(t_data *game)
 	game->collect_points = 0;
 	game->total_collect_points = count_items(game, 'C');
 	game->mlx = mlx_init();
+    if (game->y > 21)
+        ft_error("ERROR\nThe map is too big!\n");
 	game->mlx_win = mlx_new_window(game->mlx, game->img_pxl * game->x, game->img_pxl * game->y, "so_long");
 	get_image_adr(game);
 	display_image(game->mlx, game->mlx_win, game, game->map);
