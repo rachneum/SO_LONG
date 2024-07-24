@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   put_image.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 15:46:21 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/22 14:42:14 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/24 13:51:38 by raneuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	put_exit(t_data *game, int x, int y)
 
 	mlx = game->mlx;
 	mlx_win = game->mlx_win;
-	mlx_put_image_to_window(mlx, mlx_win, game->image_adr.exit_door, 64 * x, 64 * y);
+	mlx_put_image_to_window(mlx, mlx_win, game->image_adr.exit_door, (64 * x) + 12, (64 * y) + 12);
 }
 
 void	put_character(t_data *game, int x, int y, int pos)
@@ -31,13 +31,13 @@ void	put_character(t_data *game, int x, int y, int pos)
 	mlx = game->mlx;
 	mlx_win = game->mlx_win;
 	if (pos == 0)
-		mlx_put_image_to_window(mlx, mlx_win, game->image_adr.character_front, 64 * x, 64 * y);
+		mlx_put_image_to_window(mlx, mlx_win, game->image_adr.character_front, (64 * x) + 12, (64 * y) + 12);
 	if (pos == 1)
-		mlx_put_image_to_window(mlx, mlx_win, game->image_adr.character_back, 64 * x, 64 * y);
+		mlx_put_image_to_window(mlx, mlx_win, game->image_adr.character_back, (64 * x) + 12, (64 * y) + 12);
 	if (pos == 2)
-		mlx_put_image_to_window(mlx, mlx_win, game->image_adr.character_right, 64 * x, 64 * y);
+		mlx_put_image_to_window(mlx, mlx_win, game->image_adr.character_right, (64 * x) + 12, (64 * y) + 12);
 	if (pos == 3)
-		mlx_put_image_to_window(mlx, mlx_win, game->image_adr.character_left, 64 * x, 64 * y);
+		mlx_put_image_to_window(mlx, mlx_win, game->image_adr.character_left, (64 * x) + 12, (64 * y) + 12);
 	game->player_x = x;
 	game->player_y = y;
 }
@@ -69,7 +69,7 @@ void	display_image(void *mlx, void *mlx_win, t_data *game, char **map)
 			else if (map[y][x] == 'P')
 				put_character(game, x, y, 0);
 			else if (map[y][x] == 'C')
-				mlx_put_image_to_window(mlx, mlx_win, game->image_adr.collectable, 64 * x, 64 * y);
+				mlx_put_image_to_window(mlx, mlx_win, game->image_adr.collectable, (64 * x) + 12, (64 * y) + 12);
 			else if (map[y][x] == 'E')
 			{
 				game->exit_x = x;

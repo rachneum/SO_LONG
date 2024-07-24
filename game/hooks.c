@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 17:43:51 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/24 13:06:56 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/24 13:26:45 by raneuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	move_player(t_data *game, int x, int y, int pos)
 			put_exit(game, game->exit_x, game->exit_y);
 			if (game->map[y][x] == 'E')
 			{
-				printf("YOU HAVE WON!\n");
+				printf("YOU WON!\n");
 				red_cross(game);
 			}
 		}
