@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 13:51:03 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/23 13:13:31 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/24 12:53:05 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,13 @@
 # include <string.h>
 
 # define FLOOR_PATH "./assets/stars.xpm"
-# define WALL_PATH "./assets/space2.xpm"
+# define WALL_PATH "./assets/stars4.xpm"
 # define CHARACTER_FRONT_PATH "./assets/pink_character_front.xpm"
 # define CHARACTER_BACK_PATH "./assets/pink_character_back.xpm"
 # define CHARACTER_RIGHT_PATH "./assets/pink_character_right.xpm"
 # define CHARACTER_LEFT_PATH "./assets/pink_character_left.xpm"
 # define COLLECT_PATH "./assets/potion_bottle.xpm"
 # define EXIT_DOOR_PATH "./assets/black_hole.xpm"
-
 # define KEY_ESCAPE 53
 # define KEY_W		13
 # define KEY_A		0
