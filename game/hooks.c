@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 17:43:51 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/23 16:08:23 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/24 11:58:06 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,7 @@ void	move_player(t_data *game, int x, int y, int pos)
 		{
 			put_exit(game, game->exit_x, game->exit_y);
 			if (game->map[y][x] == 'E')
-			{
-				printf("success\n");
 				red_cross(game);
-			}
 		}
 	}
 }
