@@ -6,7 +6,7 @@
 /*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 13:28:53 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/24 13:46:35 by raneuman         ###   ########.fr       */
+/*   Updated: 2024/07/25 12:19:10 by raneuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ void	init_game(t_data *game)
 	game->total_collect_points = count_items(game, 'C');
 	game->mlx = mlx_init();
     if (game->y > 21)
-        ft_error("ERROR\nThe map is too big!\n");
+        ft_error("ERROR\nThe size of the map is too large!\n");
+    if (game->x > 40)
+        ft_error("ERROR\nThe size of the map is too long!\n");
 	game->mlx_win = mlx_new_window(game->mlx, game->img_pxl * game->x, game->img_pxl * game->y, "so_long");
 	get_image_adr(game);
 	display_image(game->mlx, game->mlx_win, game, game->map);

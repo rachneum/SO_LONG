@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 15:05:12 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/23 12:37:12 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/25 12:32:45 by raneuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	ft_putstr_fd(char *str, int fd)
 {
     int	i;
 
-    if (!str || (fd == -1))// ou !fd?
+    if (!str || (fd == -1))
         return ;
     i = 0;
     while (str[i])
