@@ -3,17 +3,77 @@
 /*                                                        :::      ::::::::   */
 /*   init_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 13:28:53 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/25 12:19:10 by raneuman         ###   ########.fr       */
+/*   Updated: 2024/07/25 18:10:42 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
+int	valid_cross(t_data *game, int x, int y)
+{
+	if (x < 0 || x > game->x - 1)
+		return (0);
+	if (y < 0 || y > game->y - 1)
+		return (0);
+	if (game->map[y][x] != '1')
+		return (1);
+	return (0);
+}
+
+void	flood_fill(t_data *game, int x, int y)
+{
+	//printf("%d\n", game->map[game->player_y][game->player_x]);
+	//printf("%d\n", valid_cross(game, x, y));
+	if (valid_cross(game, x, y))
+	{
+		if (game->check_path[x][y] == 'X')
+			return;
+		if (((game->check_path[x + 1][y] == 'E') || (game->check_path[x - 1][y] == 'E')
+			|| ((game->check_path[x + 1][y] == 'C') || (game->check_path[x - 1][y] == 'C')))
+			&& ((game->check_path[x][y + 1] == '1') || (game->check_path[x][y - 1] == '1')))
+			return ;
+		if (((game->check_path[x][y + 1] == 'E') || (game->check_path[x][y - 1] == 'E')
+			|| ((game->check_path[1][y + 1] == 'C') || (game->check_path[x][y - 1] == 'C')))
+			&& ((game->check_path[x + 1][y] == '1') || (game->check_path[x - 1][y] == '1')))
+			return ;
+		if ((game->check_path[x][y] == 'E') || (game->check_path[x][y] == 'C'))
+			game->check_path[x][y] = '0';
+		game->check_path[x][y] = 'X';
+		flood_fill(game, x - 1, y);
+		flood_fill(game, x + 1, y);
+		flood_fill(game, x, y - 1);
+		flood_fill(game, x, y + 1);
+	}
+	return ;
+}
+
+void	verif_path(t_data *game)
+{
+	int	x;
+	int	y;
+
+	flood_fill(game, game->player_x, game->player_y);
+	y = 0;
+	while (y < game->y)
+	{
+		x = 0;
+		while (x < game->x)
+		{
+			if (((game->map[y][x] == 'C') || (game->map[y][x] == 'E'))
+				&& (game->check_path[y][x] != 'X'))
+				ft_free_error("ERROR\n", game);
+			x++;
+		}
+		y++;
+	}
+}
+
 void	init_game(t_data *game)
 {
+	verif_path(game);
 	game->img_pxl = 64;
 	game->moves = 0;
 	game->collect_points = 0;

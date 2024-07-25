@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 13:51:03 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/24 13:52:41 by raneuman         ###   ########.fr       */
+/*   Updated: 2024/07/25 18:10:41 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ typedef struct s_img{
 
 typedef struct s_data{
 	char	**map;
+	char	**check_path;//
 	void	*mlx;
 	void	*mlx_win;
 	int		img_pxl;
@@ -65,6 +66,7 @@ typedef struct s_data{
 	int		player_y;
 	int		exit_x;
 	int		exit_y;
+	//int		verif_total;
 	t_img	image_adr;
 }	t_data;
 
@@ -83,6 +85,7 @@ int		map_is_rectangular(t_data *game);
 int		key_press(int keycode, t_data *game);
 int		red_cross(t_data *data);
 int		ft_esc(int keycode, t_data *game);
+int		valid_cross(t_data *game, int x, int y);
 
 void	ft_error(char *str);
 void	ft_putstr_fd(char *str, int fd);
@@ -98,5 +101,7 @@ void	put_exit(t_data *game, int x, int y);
 void	display_image(void *mlx, void *win, t_data *game, char **map);
 void	destroy_image(t_data *game);
 void	move_player(t_data *game, int x, int y, int pos);
+void	flood_fill(t_data *game, int x, int y);
+void	verif_path(t_data *game);
 
 #endif
