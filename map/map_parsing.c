@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_parsing.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 14:48:09 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/23 16:26:20 by raneuman         ###   ########.fr       */
+/*   Updated: 2024/07/26 12:35:28 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	**set_map(t_data *game, char *file, int nb_lines)//Lit un fichier ligne par
 	while (i < nb_lines)
 	{
 		line = get_next_line(fd);
-		game->map[i] = ft_strdup(line);//alloue suffisemment de mémoir pour une copie de la string, fait la copie et renvoie un pointeur.
+		game->map[i] = ft_strdup(line);//Alloue suffisemment de mémoir pour une copie de la string, fait la copie et renvoie un pointeur.
 		if (!game->map[i])
 			ft_free_error("ERROR\nMalloc has failed!\n", game);
 		free(line);

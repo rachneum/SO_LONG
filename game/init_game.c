@@ -6,13 +6,13 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 13:28:53 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/25 18:10:42 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/26 12:25:31 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-int	valid_cross(t_data *game, int x, int y)
+/*int	valid_cross(t_data *game, int x, int y)
 {
 	if (x < 0 || x > game->x - 1)
 		return (0);
@@ -25,8 +25,8 @@ int	valid_cross(t_data *game, int x, int y)
 
 void	flood_fill(t_data *game, int x, int y)
 {
-	//printf("%d\n", game->map[game->player_y][game->player_x]);
-	//printf("%d\n", valid_cross(game, x, y));
+	printf("%d\n", game->map[y][x]);
+	printf("%d\n", valid_cross(game, x, y));
 	if (valid_cross(game, x, y))
 	{
 		if (game->check_path[x][y] == 'X')
@@ -69,11 +69,11 @@ void	verif_path(t_data *game)
 		}
 		y++;
 	}
-}
+}*/
 
 void	init_game(t_data *game)
 {
-	verif_path(game);
+	//verif_path(game);
 	game->img_pxl = 64;
 	game->moves = 0;
 	game->collect_points = 0;
