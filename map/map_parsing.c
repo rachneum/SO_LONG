@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 14:48:09 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/26 12:35:28 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/29 12:57:14 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	**set_map(t_data *game, char *file, int nb_lines)//Lit un fichier ligne par
 	return (game->map);
 }
 
-char	**parse_map( t_data *game, char *file)
+char	**parse_map(t_data *game, char *file)
 {
 	int	nb_lines;
 

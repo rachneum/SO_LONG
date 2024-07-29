@@ -37,11 +37,11 @@ $(NAME): $(OBJS)
 all: ${NAME}
 
 clean:
-	 make -C ./mlx
+	make -C ./mlx
 	${RM} ${OBJS}
 
 fclean: clean
-	 make clean -C ./mlx
+	make clean -C ./mlx
 	${RM} ${NAME}
 
 re: fclean all

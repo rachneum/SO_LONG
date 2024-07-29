@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 13:51:03 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/26 12:39:04 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/29 13:11:39 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ char	**parse_map(t_data *game, char *file);
 char	*ft_strdup(char *s1);
 char	**set_map(t_data *game, char *file, int nb_lines);
 char	*set_line(t_data *game, char *line, int j);
+char	**map_copy(t_data *game, char *file);
 
 int		count_lines(char *file);
 int 	count_length(char *file);
@@ -84,7 +85,7 @@ int		map_is_rectangular(t_data *game);
 int		key_press(int keycode, t_data *game);
 int		red_cross(t_data *data);
 int		ft_esc(int keycode, t_data *game);
-//int		valid_cross(t_data *game, int x, int y);
+int		valid_cross(t_data *game, int x, int y);
 
 void	ft_error(char *str);
 void	ft_putstr_fd(char *str, int fd);
@@ -100,7 +101,7 @@ void	put_exit(t_data *game, int x, int y);
 void	display_image(void *mlx, void *win, t_data *game, char **map);
 void	destroy_image(t_data *game);
 void	move_player(t_data *game, int x, int y, int pos);
-//void	flood_fill(t_data *game, int x, int y);
-//void	verif_path(t_data *game);
+void	flood_fill(t_data *game, int x, int y);
+void	verif_path(t_data *game);
 
 #endif

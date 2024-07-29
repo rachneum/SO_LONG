@@ -6,14 +6,15 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 13:28:53 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/26 12:25:31 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/29 13:19:39 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-/*int	valid_cross(t_data *game, int x, int y)
+int	valid_cross(t_data *game, int x, int y)//M'assure de ne pas dépasser les limites de ma map.
 {
+	game->map[y][x] = 'P';
 	if (x < 0 || x > game->x - 1)
 		return (0);
 	if (y < 0 || y > game->y - 1)
@@ -23,7 +24,7 @@
 	return (0);
 }
 
-void	flood_fill(t_data *game, int x, int y)
+void	flood_fill(t_data *game, int x, int y)//Si != 1, check chemins en remplacants pas des X.
 {
 	printf("%d\n", game->map[y][x]);
 	printf("%d\n", valid_cross(game, x, y));
@@ -69,11 +70,11 @@ void	verif_path(t_data *game)
 		}
 		y++;
 	}
-}*/
+}
 
 void	init_game(t_data *game)
 {
-	//verif_path(game);
+	verif_path(game);
 	game->img_pxl = 64;
 	game->moves = 0;
 	game->collect_points = 0;
