@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 15:08:22 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/23 11:28:13 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/29 16:29:07 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,22 +60,23 @@ int	map_is_rectangular(t_data *game)
 
 int	item_is_valid(t_data *game)
 {
-	int	x;
-	int	y;
-
-	y = 0;
-	while (game->map[y])
-	{
-		x = 0;
-		while (game->map[y][x])
-		{
-			if (game->map[y][x] != '0' && game->map[y][x] != '1' && game->map[y][x] != 'C'
-				&& game->map[y][x] != 'E' && game->map[y][x] != 'P' && game->map[y][x] != '\n')
-				return (0);
-			x++;
-		}
-		y++;
-	}
+	(void) game;
+	//int	x;
+	//int	y;
+//
+	//y = 0;
+	//while (game->map[y])
+	//{
+	//	x = 0;
+	//	while (game->map[y][x])
+	//	{
+	//		if (game->map[y][x] != '0' && game->map[y][x] != '1' && game->map[y][x] != 'C'
+	//			&& game->map[y][x] != 'E' && game->map[y][x] != 'P' && game->map[y][x] != '\n')
+	//			return (0);
+	//		x++;
+	//	}
+	//	y++;
+	//}
 	return (1);
 }
 
