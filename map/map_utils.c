@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 14:52:45 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/29 16:49:09 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/31 11:16:31 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	ft_free_error(char *str, t_data *game)
 	exit(EXIT_FAILURE);
 }
 
-/*void	ft_free_check_path(t_data *game)
+void	ft_free_check_path(t_data *game)
 {
 	int y;
 
@@ -86,9 +86,3 @@ void	ft_free_error(char *str, t_data *game)
     }
 }
 
-void	ft_free_error_2(char *str, t_data *game)
-{
-	ft_free_check_path(game);
-	ft_putstr_fd(str, 2);
-	exit(EXIT_FAILURE);
-}*/

@@ -17,7 +17,6 @@ SRC =	get_next_line/get_next_line.c \
 		map/map_parsing.c \
 		map/map_utils.c \
 		game/init_game.c \
-		game/flood_fill_utils.c \
 		game/get_image.c \
 		game/put_image.c \
 		game/hooks.c \
@@ -42,7 +41,7 @@ clean:
 	${RM} ${OBJS}
 
 fclean: clean
-	make clean -C ./mlx
+	# make clean -C ./mlx
 	${RM} ${NAME}
 
 re: fclean all
