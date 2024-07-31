@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 15:08:22 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/31 13:27:15 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/31 14:39:13 by raneuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ int	map_is_rectangular(t_data *game)
 
 int	item_is_valid(t_data *game)
 {
-	(void) game;
 	int	x;
 	int	y;
 
@@ -70,8 +69,9 @@ int	item_is_valid(t_data *game)
 		x = 0;
 		while (game->map[y][x])
 		{
-			if (game->map[y][x] != '0' && game->map[y][x] != '1' && game->map[y][x] != 'C'
-				&& game->map[y][x] != 'E' && game->map[y][x] != 'P' && game->map[y][x] != '\n')
+			if (game->map[y][x] != '0' && game->map[y][x] != '1'
+				&& game->map[y][x] != 'C' && game->map[y][x] != 'E'
+				&& game->map[y][x] != 'P' && game->map[y][x] != '\n')
 				return (0);
 			x++;
 		}
@@ -97,7 +97,7 @@ int	count_items(t_data *game, char item)
 				count++;
 			x++;
 		}
-		y++;	
+		y++;
 	}
 	return (count);
 }
@@ -106,8 +106,8 @@ void	map_is_valid(t_data *game)
 {
 	if (!map_is_rectangular(game))
 		ft_free_error("Error\nMap is not rectangular!\n", game);
-	/*else if (!map_is_closed(game))
-		ft_free_error("Error\nMap is not closed!\n", game);*/
+	//else if (!map_is_closed(game))
+	//	ft_free_error("Error\nMap is not closed!\n", game);
 	else if (!item_is_valid(game))
 		ft_free_error("Error\nMap contains invalid items!\n", game);
 	else if (count_items(game, 'C') < 1)
@@ -115,5 +115,5 @@ void	map_is_valid(t_data *game)
 	else if (count_items(game, 'E') < 1)
 		ft_free_error("Error\nMap does not have at least one exit!\n", game);
 	else if (count_items(game, 'P') != 1)
-		ft_free_error("Error\nMap player's starting position is invalid!\n", game);
+		ft_free_error("Error\nMap starting position is invalid!\n", game);
 }

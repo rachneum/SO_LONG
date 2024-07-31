@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   map_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 14:52:45 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/31 11:16:31 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/31 14:45:22 by raneuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-int count_length(char *file)
+int	count_length(char *file)
 {
 	int		fd;
 	char	*line;
-	
+
 	fd = open(file, O_RDONLY, 0777);
 	if (fd == -1)
 		ft_error("ERROR\nMap file opening has failed!\n");
@@ -29,7 +29,7 @@ int	count_lines(char *file)
 	int		fd;
 	int		count;
 	char	*line;
-	
+
 	fd = open(file, O_RDONLY, 0777);
 	if (fd == -1)
 		ft_error("ERROR\nMap file opening has failed!\n");
@@ -38,7 +38,7 @@ int	count_lines(char *file)
 	{
 		line = get_next_line(fd);
 		if (!line)
-			break;
+			break ;
 		count++;
 		free(line);
 	}
@@ -47,19 +47,19 @@ int	count_lines(char *file)
 
 void	ft_free_map(t_data *game)
 {
-	int y;
+	int	y;
 
 	y = 0;
-    if (game->map != NULL)
-    {
-        while (game->map[y] != NULL)
-        {
-            free(game->map[y]);
-            y++;
-        }
-        free(game->map);
-        game->map = NULL;
-    }
+	if (game->map != NULL)
+	{
+		while (game->map[y] != NULL)
+		{
+			free(game->map[y]);
+			y++;
+		}
+		free(game->map);
+		game->map = NULL;
+	}
 }
 
 void	ft_free_error(char *str, t_data *game)
@@ -71,18 +71,17 @@ void	ft_free_error(char *str, t_data *game)
 
 void	ft_free_check_path(t_data *game)
 {
-	int y;
+	int	y;
 
 	y = 0;
-    if (game->check_path != NULL)
-    {
-        while (game->check_path[y] != NULL)
-        {
-            free(game->check_path[y]);
-            y++;
-        }
-        free(game->check_path);
-        game->check_path = NULL;
-    }
+	if (game->check_path != NULL)
+	{
+		while (game->check_path[y] != NULL)
+		{
+			free(game->check_path[y]);
+			y++;
+		}
+		free(game->check_path);
+		game->check_path = NULL;
+	}
 }
-

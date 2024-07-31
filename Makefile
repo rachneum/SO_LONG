@@ -19,6 +19,7 @@ SRC =	get_next_line/get_next_line.c \
 		game/init_game.c \
 		game/get_image.c \
 		game/put_image.c \
+		game/put_image_2.c \
 		game/hooks.c \
 		game/destroy_image.c \
 		ft_utils.c 

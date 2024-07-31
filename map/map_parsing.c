@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_parsing.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 14:48:09 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/31 12:36:54 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/31 14:40:56 by raneuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	set_map(t_data *game, char *file, int nb_lines)//Lit un fichier ligne par l
 			ft_free_error("ERROR\nMalloc has failed!\n", game);
 		game->check_path[i] = ft_strdup(line);
 		if (!game->check_path[i])
-		ft_free_check_path(game);
+			ft_free_check_path(game);
 		free(line);
 		i++;
 	}

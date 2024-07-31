@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 17:43:51 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/29 13:13:47 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/31 15:09:31 by raneuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ void	move_player(t_data *game, int x, int y, int pos)
 		return ;
 	game->moves++;
 	printf("number of moves : %d\n", game->moves);
-	if (game->map[y][x] == '0' || game->map[y][x] == 'C' || game->map[y][x] == 'E')
+	if (game->map[y][x] == '0' || game->map[y][x] == 'C'
+		|| game->map[y][x] == 'E')
 	{
 		if (game->map[game->player_y][game->player_x] == 'C')
 			game->collect_points++;
 		if (game->map[game->player_y][game->player_x] != 'E')
 			game->map[game->player_y][game->player_x] = '0';
-		//printf("%d\n", game->map[y][x]);
 		put_floor(game, game->player_x, game->player_y);
 		put_floor(game, x, y);
 		put_character(game, x, y, pos);
@@ -48,7 +48,6 @@ int	ft_esc(int keycode, t_data *game)
 	destroy_image(game);
 	exit(0);
 }
-
 
 int	red_cross(t_data *data)
 {
