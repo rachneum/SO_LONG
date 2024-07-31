@@ -41,7 +41,7 @@ clean:
 	${RM} ${OBJS}
 
 fclean: clean
-	# make clean -C ./mlx
+	make clean -C ./mlx
 	${RM} ${NAME}
 
 re: fclean all
