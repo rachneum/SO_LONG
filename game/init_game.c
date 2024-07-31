@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 13:28:53 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/31 11:50:08 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/31 12:38:29 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,20 @@ void	check_pos(t_data *game)
 	int	x;
 	int	y;
 
-	y = -1;
-	while (++y < game->y)
+	y = 0;
+	while (y < game->y)
 	{
-		x = -1;
-		while (++x < game->x)
+		x = 0;
+		while (x < game->x)
 		{
 			if (game->map[y][x] == 'P')
 			{
 				game->copy_player_y = y;
 				game->copy_player_x = x;
 			}
+			x++;
 		}
+		y++;
 	}
 }
 
@@ -75,7 +77,7 @@ void	verif_path(t_data *game)
 			if (((game->map[y][x] == 'C') || (game->map[y][x] == 'E'))
 				&& (game->check_path[y][x] != 'X'))
 			{
-				ft_free_error("ERROR\n", game);
+				ft_free_error("ERROR\nPath is not valid!\n", game);
 			}
 			x++;
 		}

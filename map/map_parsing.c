@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 14:48:09 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/31 11:46:27 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/31 12:36:54 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,11 @@ void	parse_map(t_data *game, char *file)
 	if (!nb_lines)
 		ft_error("ERROR\nThe map is empty!\n");
 	game->map = malloc(sizeof(char *) * (nb_lines + 1));
+	if (!game->map)
+		ft_error("ERROR\nMalloc has failed!\n");
 	game->check_path = malloc(sizeof(char *) * (nb_lines + 1));
-	if (!game->map /*|| game->check_path*/)
-		ft_error("ERROR\n?????Malloc has failed!\n");
+	if (!game->check_path)
+		ft_error("ERROR\nMalloc has failed!\n");
 	set_map(game, file, nb_lines);
 	game->x = count_length(file) - 1;
 	game->y = nb_lines;

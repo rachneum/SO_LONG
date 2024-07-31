@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 13:51:03 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/31 11:49:39 by rachou           ###   ########.fr       */
+/*   Updated: 2024/07/31 12:40:19 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # define CHARACTER_LEFT_PATH "./assets/pink_character_left.xpm"
 # define COLLECT_PATH "./assets/potion_bottle.xpm"
 # define EXIT_DOOR_PATH "./assets/black_hole.xpm"
+
 # define KEY_ESCAPE 53
 # define KEY_W		13
 # define KEY_A		0
@@ -92,6 +93,7 @@ void	ft_error(char *str);
 void	ft_putstr_fd(char *str, int fd);
 void	ft_free_error(char *str, t_data *game);
 void	ft_free_map(t_data *game);
+void	ft_free_check_path(t_data *game);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	map_is_valid(t_data *game);
 void	init_game(t_data *game);
@@ -102,9 +104,8 @@ void	put_exit(t_data *game, int x, int y);
 void	display_image(void *mlx, void *win, t_data *game, char **map);
 void	destroy_image(t_data *game);
 void	move_player(t_data *game, int x, int y, int pos);
+void	check_pos(t_data *game);
 void	flood_fill(t_data *game, int x, int y);
 void	verif_path(t_data *game);
-void	check_pos(t_data *game);
-void	ft_free_check_path(t_data *game);
 
 #endif
