@@ -6,7 +6,7 @@
 /*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 13:28:53 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/31 15:22:19 by raneuman         ###   ########.fr       */
+/*   Updated: 2024/08/01 15:23:22 by raneuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	check_pos(t_data *game)
 	}
 }
 
-int	valid_cross(t_data *game, int x, int y)//M'assure de ne pas dépasser les limites de ma map.
+int	valid_cross(t_data *game, int x, int y)
 {
 	if (x < 0 || x > game->x - 1)
 		return (0);
@@ -45,7 +45,7 @@ int	valid_cross(t_data *game, int x, int y)//M'assure de ne pas dépasser les li
 	return (0);
 }
 
-void	flood_fill(t_data *game, int x, int y)//Si != 1, check chemins en remplacants pas des X.
+void	flood_fill(t_data *game, int x, int y)
 {
 	if (valid_cross(game, x, y))
 	{
@@ -104,7 +104,7 @@ void	init_game(t_data *game)
 	get_image_adr(game);
 	get_image_adr_2(game);
 	display_image(game, game->map);
-	mlx_hook(game->mlx_win, 17, 0, &red_cross, game);//17 = hooking event: ON_DESTROY
-	mlx_hook(game->mlx_win, 2, 0, &key_press, game);//2 = hooking event: ON_KEYDOWN
+	mlx_hook(game->mlx_win, 17, 0, &red_cross, game);
+	mlx_hook(game->mlx_win, 2, 0, &key_press, game);
 	mlx_loop(game->mlx);
 }
