@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 15:08:22 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/31 14:39:13 by raneuman         ###   ########.fr       */
+/*   Updated: 2024/08/01 14:37:59 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,37 +26,33 @@ int	map_is_rectangular(t_data *game)
 	return (1);
 }
 
-/*int	map_is_closed(t_data *game)
+int	map_is_closed(t_data *game)
 {
-	int	x;
 	int	y;
+	int	x;
 
-	x = 0;
-	while (game->map[0][x])
-	{
-		if (game->map[0][x] != '1')
-			return (0);
-		x++;
-	}
-	y = -1;
-	//x--;
-	while (game->map[++y][x])
+	y = 0;
+	x = -1;
+	while (++x < game->x)
 		if (game->map[y][x] != '1')
 			return (0);
-	y = 0;
-	while (game->map[y])
-	{
-		if (game->map[y][0] != '1')
+	x -= 1;
+	y = -1;
+	while (++y < game->y)
+		if (game->map[y][x] != '1')
 			return (0);
-		y++;
-	}
-	x = -1;
-	//y--;
-	while (game->map[y][++x])
+	y -= 1;
+	x += 1;
+	while (--x > -1)
+		if (game->map[y][x] != '1')
+			return (0);
+	x += 1;
+	y += 1;
+	while (--y > -1)
 		if (game->map[y][x] != '1')
 			return (0);
 	return (1);
-}*/
+}
 
 int	item_is_valid(t_data *game)
 {
@@ -106,8 +102,8 @@ void	map_is_valid(t_data *game)
 {
 	if (!map_is_rectangular(game))
 		ft_free_error("Error\nMap is not rectangular!\n", game);
-	//else if (!map_is_closed(game))
-	//	ft_free_error("Error\nMap is not closed!\n", game);
+	else if (!map_is_closed(game))
+		ft_free_error("Error\nMap is not closed!\n", game);
 	else if (!item_is_valid(game))
 		ft_free_error("Error\nMap contains invalid items!\n", game);
 	else if (count_items(game, 'C') < 1)
