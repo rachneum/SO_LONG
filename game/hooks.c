@@ -6,7 +6,7 @@
 /*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 17:43:51 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/31 15:09:31 by raneuman         ###   ########.fr       */
+/*   Updated: 2024/08/01 14:15:22 by raneuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	move_player(t_data *game, int x, int y, int pos)
 	if (game->map[y][x] == '0' || game->map[y][x] == 'C'
 		|| game->map[y][x] == 'E')
 	{
-		if (game->map[game->player_y][game->player_x] == 'C')
+		if (game->map[y][x] == 'C')
 			game->collect_points++;
 		if (game->map[game->player_y][game->player_x] != 'E')
 			game->map[game->player_y][game->player_x] = '0';
