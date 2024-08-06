@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 15:08:22 by rachou            #+#    #+#             */
-/*   Updated: 2024/08/01 16:35:29 by rachou           ###   ########.fr       */
+/*   Updated: 2024/08/06 12:31:31 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ void	map_is_valid(t_data *game)
 		ft_free_error("Error\nMap contains invalid items!\n", game);
 	else if (count_items(game, 'C') < 1)
 		ft_free_error("Error\nMap does not have at least one item!\n", game);
-	else if (count_items(game, 'E') < 1)
+	else if (count_items(game, 'E') != 1)
 		ft_free_error("Error\nMap does not have at least one exit!\n", game);
 	else if (count_items(game, 'P') != 1)
 		ft_free_error("Error\nMap starting position is invalid!\n", game);
