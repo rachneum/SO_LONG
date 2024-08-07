@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 11:34:49 by raneuman          #+#    #+#             */
-/*   Updated: 2024/02/05 11:34:32 by raneuman         ###   ########.fr       */
+/*   Updated: 2024/08/07 13:51:54 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,12 +80,14 @@ void	copy_str(t_list *list, char *str)
 		i = 0;
 		while (list->str_buf[i])
 		{
-			if (list->str_buf[i] == '\n')
+			if (list->str_buf[i] == '\n' && list->next != NULL)
 			{
 				str[k++] = '\n';
 				str[k] = '\0';
 				return ;
 			}
+			if (list->str_buf[i] == '\n' && list->next == NULL)
+				break ;
 			str[k++] = list->str_buf[i++];
 		}
 		list = list->next;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 13:28:53 by rachou            #+#    #+#             */
-/*   Updated: 2024/08/01 15:23:22 by raneuman         ###   ########.fr       */
+/*   Updated: 2024/08/07 14:53:48 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	init_game(t_data *game)
 	if (game->x > 40)
 		ft_error("ERROR\nThe size of the map is too long!\n");
 	game->mlx_win
-		= mlx_new_window(game->mlx, game->img_pxl * game->x,
+		= mlx_new_window(game->mlx, game->img_pxl * (game->x + 1),
 			game->img_pxl * game->y, "so_long");
 	get_image_adr(game);
 	get_image_adr_2(game);
