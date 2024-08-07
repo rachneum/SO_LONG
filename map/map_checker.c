@@ -6,7 +6,7 @@
 /*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 15:08:22 by rachou            #+#    #+#             */
-/*   Updated: 2024/08/06 12:31:31 by rachou           ###   ########.fr       */
+/*   Updated: 2024/08/07 10:47:40 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,17 @@
 int	map_is_rectangular(t_data *game)
 {
 	int	y;
+	//int	x;
 
 	y = 0;
+	//x = 0;
 	while (game->map[y])
 	{
 		if (ft_strlen(game->map[y]) != ft_strlen(game->map[0]))
-			return (1);
+			return (0);
 		y++;
 	}
-	return (0);
+	return (1);
 }
 
 int	map_is_closed(t_data *game)
