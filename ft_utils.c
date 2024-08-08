@@ -6,21 +6,21 @@
 /*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 15:05:12 by rachou            #+#    #+#             */
-/*   Updated: 2024/07/31 15:24:49 by raneuman         ###   ########.fr       */
+/*   Updated: 2024/08/08 12:51:55 by raneuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	*ft_memcpy(void *dst, void *src, int n)
 {
-	size_t		i;
-	char		*dest;
-	const char	*source;
+	int		i;
+	char	*dest;
+	char	*source;
 
 	i = 0;
 	dest = dst;
-	source = (const char *)src;
+	source = (char *)src;
 	if (!dst && !src)
 		return (NULL);
 	while (i < n)

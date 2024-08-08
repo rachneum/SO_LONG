@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 13:51:03 by rachou            #+#    #+#             */
-/*   Updated: 2024/08/01 14:37:26 by rachou           ###   ########.fr       */
+/*   Updated: 2024/08/08 12:51:12 by raneuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void	ft_putstr_fd(char *str, int fd);
 void	ft_free_error(char *str, t_data *game);
 void	ft_free_map(t_data *game);
 void	ft_free_check_path(t_data *game);
-void	*ft_memcpy(void *dst, const void *src, size_t n);
+void	*ft_memcpy(void *dst, void *src, int n);
 void	map_is_valid(t_data *game);
 void	init_game(t_data *game);
 void	get_image_adr(t_data *game);

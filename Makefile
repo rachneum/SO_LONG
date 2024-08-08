@@ -33,7 +33,7 @@ MLX_LIB = $(MLX_DIR)/libmlx_$(UNAME).a
 
 $(NAME): $(OBJS)
 	make -C ./mlx
-	$(CC) $(CFLAGS) -fsanitize=address -g3 -o $(NAME) $(OBJS) $(MLX_FLAGS)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX_FLAGS)
 
 all: ${NAME}
 

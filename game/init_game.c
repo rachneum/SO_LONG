@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 13:28:53 by rachou            #+#    #+#             */
-/*   Updated: 2024/08/07 14:53:48 by rachou           ###   ########.fr       */
+/*   Updated: 2024/08/08 13:05:21 by raneuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,11 @@ void	verif_path(t_data *game)
 		{
 			if (((game->map[y][x] == 'C') || (game->map[y][x] == 'E'))
 				&& (game->check_path[y][x] != 'X'))
-			{
-				ft_free_error("ERROR\nPath is not valid!\n", game);
-			}
+                {
+                    write(1, "ERROR\nThe path is not correct\n", 31);
+                    ft_free_check_path(game);
+                    exit(EXIT_FAILURE);
+                }
 			x++;
 		}
 		y++;
