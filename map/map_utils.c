@@ -3,28 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   map_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 14:52:45 by rachou            #+#    #+#             */
-/*   Updated: 2024/08/01 14:37:18 by rachou           ###   ########.fr       */
+/*   Updated: 2024/08/09 12:25:47 by raneuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-int	count_length(char *file)
+int	count_length(char *file, t_data *game)
 {
 	int		fd;
 	char	*line;
-
+    int     leng;
+    
 	fd = open(file, O_RDONLY, 0777);
 	if (fd == -1)
-		ft_error("ERROR\nMap file opening has failed!\n");
+		ft_free_error("ERROR\nMap file opening has failed!\n", game);
 	line = get_next_line(fd);
-	return (ft_strlen(line));
+    leng = ft_strlen(line);
+    free(line);
+	return (leng);
 }
 
-int	count_lines(char *file)
+int	count_lines(char *file, t_data *game)
 {
 	int		fd;
 	int		count;
@@ -32,7 +35,7 @@ int	count_lines(char *file)
 
 	fd = open(file, O_RDONLY, 0777);
 	if (fd == -1)
-		ft_error("ERROR\nMap file opening has failed!\n");
+		ft_free_error("ERROR\nMap file opening has failed!\n", game);
 	count = 0;
 	while (1)
 	{
@@ -84,4 +87,5 @@ void	ft_free_check_path(t_data *game)
 		free(game->check_path);
 		game->check_path = NULL;
 	}
+    exit(EXIT_FAILURE);
 }

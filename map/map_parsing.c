@@ -6,7 +6,7 @@
 /*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 14:48:09 by rachou            #+#    #+#             */
-/*   Updated: 2024/08/08 12:48:04 by raneuman         ###   ########.fr       */
+/*   Updated: 2024/08/09 12:26:30 by raneuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	parse_map(t_data *game, char *file)
 {
 	int	nb_lines;
 
-	nb_lines = count_lines(file);
+	nb_lines = count_lines(file, game);
 	if (!nb_lines)
 		ft_error("ERROR\nThe map is empty!\n");
 	game->map = malloc(sizeof(char *) * (nb_lines + 1));
@@ -53,6 +53,6 @@ void	parse_map(t_data *game, char *file)
 	if (!game->check_path)
 		ft_free_check_path(game);
 	set_map(game, file, nb_lines);
-	game->x = count_length(file) - 1;
+	game->x = count_length(file, game) - 1;
 	game->y = nb_lines;
 }

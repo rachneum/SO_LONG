@@ -6,7 +6,7 @@
 /*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 13:28:53 by rachou            #+#    #+#             */
-/*   Updated: 2024/08/08 13:05:21 by raneuman         ###   ########.fr       */
+/*   Updated: 2024/08/08 15:37:17 by raneuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ void	verif_path(t_data *game)
                 {
                     write(1, "ERROR\nThe path is not correct\n", 31);
                     ft_free_check_path(game);
-                    exit(EXIT_FAILURE);
                 }
 			x++;
 		}
@@ -97,9 +96,9 @@ void	init_game(t_data *game)
 	game->total_collect_points = count_items(game, 'C');
 	game->mlx = mlx_init();
 	if (game->y > 21)
-		ft_error("ERROR\nThe size of the map is too large!\n");
+		ft_free_error("ERROR\nThe size of the map is too large!\n", game);
 	if (game->x > 40)
-		ft_error("ERROR\nThe size of the map is too long!\n");
+		ft_free_error("ERROR\nThe size of the map is too long!\n", game);
 	game->mlx_win
 		= mlx_new_window(game->mlx, game->img_pxl * (game->x + 1),
 			game->img_pxl * game->y, "so_long");
