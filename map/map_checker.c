@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 15:08:22 by rachou            #+#    #+#             */
-/*   Updated: 2024/08/07 14:56:21 by rachou           ###   ########.fr       */
+/*   Updated: 2024/08/09 15:00:52 by raneuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	map_is_closed(t_data *game)
 	y -= 1;
 	x += 1;
 	while (--x > -1)
-		if (game->map[y][x] != '1') 
+		if (game->map[y][x] != '1')
 			return (0);
 	x += 1;
 	y += 1;
@@ -101,7 +101,7 @@ void	map_is_valid(t_data *game)
 {
 	if (!map_is_rectangular(game))
 		ft_free_error("Error\nMap is not rectangular!\n", game);
-	else if (!map_is_closed(game)) 
+	else if (!map_is_closed(game))
 		ft_free_error("Error\nMap is not closed!\n", game);
 	else if (!item_is_valid(game))
 		ft_free_error("Error\nMap contains invalid items!\n", game);

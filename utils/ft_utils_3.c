@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utils_3.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 14:29:50 by rachou            #+#    #+#             */
-/*   Updated: 2024/08/09 14:30:50 by rachou           ###   ########.fr       */
+/*   Updated: 2024/08/09 15:02:20 by raneuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 void	ft_error(char *str)
 {
@@ -57,5 +57,5 @@ void	ft_free_check_path(t_data *game)
 		free(game->check_path);
 		game->check_path = NULL;
 	}
-    exit(EXIT_FAILURE);
+	exit(EXIT_FAILURE);
 }

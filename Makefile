@@ -21,9 +21,9 @@ SRC =	get_next_line/get_next_line.c \
 		game/put_image_2.c \
 		game/hooks.c \
 		game/destroy_image.c \
-		ft_utils_1.c \
-		ft_utils_2.c \
-		ft_utils_3.c
+		utils/ft_utils_1.c \
+		utils/ft_utils_2.c \
+		utils/ft_utils_3.c
 
 MLX_FLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
 

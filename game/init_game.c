@@ -6,7 +6,7 @@
 /*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 13:28:53 by rachou            #+#    #+#             */
-/*   Updated: 2024/08/08 15:37:17 by raneuman         ###   ########.fr       */
+/*   Updated: 2024/08/09 14:59:58 by raneuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,10 @@ void	verif_path(t_data *game)
 		{
 			if (((game->map[y][x] == 'C') || (game->map[y][x] == 'E'))
 				&& (game->check_path[y][x] != 'X'))
-                {
-                    write(1, "ERROR\nThe path is not correct\n", 31);
-                    ft_free_check_path(game);
-                }
+			{
+				write(1, "ERROR\nThe path is not correct\n", 31);
+				ft_free_check_path(game);
+			}
 			x++;
 		}
 		y++;
