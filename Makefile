@@ -15,14 +15,15 @@ SRC =	get_next_line/get_next_line.c \
 		main.c \
 		map/map_checker.c \
 		map/map_parsing.c \
-		map/map_utils.c \
 		game/init_game.c \
 		game/get_image.c \
 		game/put_image.c \
 		game/put_image_2.c \
 		game/hooks.c \
 		game/destroy_image.c \
-		ft_utils.c 
+		ft_utils_1.c \
+		ft_utils_2.c \
+		ft_utils_3.c
 
 MLX_FLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
 
@@ -42,7 +43,7 @@ clean:
 	${RM} ${OBJS}
 
 fclean: clean
-	make clean -C ./mlx
+	# make clean -C ./mlx
 	${RM} ${NAME}
 
 re: fclean all

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rachou <rachou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 13:51:03 by rachou            #+#    #+#             */
-/*   Updated: 2024/08/08 16:26:28 by raneuman         ###   ########.fr       */
+/*   Updated: 2024/08/09 14:27:56 by rachou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ typedef struct s_data
 char	*ft_strdup(char *s1);
 char	*set_line(t_data *game, char *line, int j);
 
+int		ft_strncmp(char *s1, char *s2, int n);
 int		count_lines(char *file, t_data *game);
 int		count_length(char *file, t_data *game);
 int		ft_strlen(char *str);
